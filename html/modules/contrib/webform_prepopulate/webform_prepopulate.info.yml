@@ -1,0 +1,14 @@
+name: 'Webform Prepopulate'
+type: module
+description: 'Pre-populate a Webform with an external data source without disclosing information in the URL.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Webform'
+dependencies:
+  - webform:webform
+  - webform:webform_ui
+
+# Information added by Drupal.org packaging script on 2020-04-30
+version: '8.x-1.0-alpha4'
+project: 'webform_prepopulate'
+datestamp: 1588270928

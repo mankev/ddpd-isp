@@ -1,0 +1,14 @@
+name: Handsontable For YML Webform
+type: module
+description: Provides a Webform Element for Handsontable
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Webform
+dependencies:
+  - webform:webform (>= 5.9)
+  - drupal:node
+
+# Information added by Drupal.org packaging script on 2020-05-23
+version: '8.x-1.2'
+project: 'handsontable_yml_webform'
+datestamp: 1590241811

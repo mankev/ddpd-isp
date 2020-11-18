@@ -1,0 +1,10 @@
+name: 'Webform calculation'
+type: module
+description: 'Provides ability to make dynamic calculations using Webform.'
+core: 8.x
+package: 'Webform'
+
+# Information added by Drupal.org packaging script on 2020-06-02
+version: '8.x-1.0'
+project: 'webform_calculation'
+datestamp: 1591118598

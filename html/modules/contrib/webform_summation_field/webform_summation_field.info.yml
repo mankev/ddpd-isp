@@ -1,0 +1,12 @@
+name: Webform Summation Field
+type: module
+description: Provides a webform summation field to collect the values of other fields.
+package: Webform
+core: 8.x
+dependencies:
+  - drupal:webform
+
+# Information added by Drupal.org packaging script on 2019-12-17
+version: '8.x-1.3'
+project: 'webform_summation_field'
+datestamp: 1576576687

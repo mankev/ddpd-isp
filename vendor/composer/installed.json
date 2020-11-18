@@ -832,7 +832,7 @@
         "version_normalized": "2.3.4.0",
         "source": {
             "type": "git",
-            "url": "git@github.com:fengyuanchen/cropper.git",
+            "url": "https://github.com/fengyuanchen/cropper.git",
             "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
         },
         "dist": {
@@ -4849,9 +4849,9 @@
                 }
             },
             "patches_applied": {
-                "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
-                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch",
+                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                 "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
+                "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                 "Enter drupal/core patch #1356276 description here": "https://www.drupal.org/files/issues/2019-12-27/1356276-88x-603.patch",
                 "Enter drupal/core patch #1838234 description here": "https://www.drupal.org/files/issues/2018-09-06/1838234-52.patch",
                 "Enter drupal/core patch #2454915 description here": "https://www.drupal.org/files/issues/2020-08-27/w3c-entity-links-2454915-36.patch",
@@ -5662,6 +5662,77 @@
         "homepage": "https://www.drupal.org/project/embed",
         "support": {
             "source": "https://git.drupalcode.org/project/embed"
+        }
+    },
+    {
+        "name": "drupal/encrypt",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/encrypt.git",
+            "reference": "8.x-3.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/encrypt-8.x-3.0.zip",
+            "reference": "8.x-3.0",
+            "shasum": "6916583be6d08c9684582358d7b7722fdeea8487"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/key": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-3.0",
+                "datestamp": "1602354427",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "alexpott",
+                "homepage": "https://www.drupal.org/user/157725"
+            },
+            {
+                "name": "gisle",
+                "homepage": "https://www.drupal.org/user/409554"
+            },
+            {
+                "name": "greggles",
+                "homepage": "https://www.drupal.org/user/36762"
+            },
+            {
+                "name": "nerdstein",
+                "homepage": "https://www.drupal.org/user/1557710"
+            },
+            {
+                "name": "rlhawk",
+                "homepage": "https://www.drupal.org/user/352283"
+            },
+            {
+                "name": "theunraveler",
+                "homepage": "https://www.drupal.org/user/71548"
+            },
+            {
+                "name": "zzolo",
+                "homepage": "https://www.drupal.org/user/147331"
+            }
+        ],
+        "description": "Provides an API for two-way encryption.",
+        "homepage": "https://www.drupal.org/project/encrypt",
+        "support": {
+            "source": "https://git.drupalcode.org/project/encrypt"
         }
     },
     {
@@ -6509,6 +6580,57 @@
         }
     },
     {
+        "name": "drupal/handsontable_yml_webform",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/handsontable_yml_webform.git",
+            "reference": "8.x-1.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/handsontable_yml_webform-8.x-1.2.zip",
+            "reference": "8.x-1.2",
+            "shasum": "f80890160899b31eca5fa1ac7aeb9e16c26e9ed3"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "^5.9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.2",
+                "datestamp": "1590241809",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Gogowitsch",
+                "homepage": "https://www.drupal.org/user/99356"
+            },
+            {
+                "name": "mferanda",
+                "homepage": "https://www.drupal.org/user/3541484"
+            }
+        ],
+        "description": "Provides a Webform Element for Handsontable",
+        "homepage": "https://drupal.org/project/handsontable_yml_webform",
+        "support": {
+            "source": "https://git.drupalcode.org/project/handsontable_yml_webform"
+        }
+    },
+    {
         "name": "drupal/image_widget_crop",
         "version": "2.3.0",
         "version_normalized": "2.3.0.0",
@@ -6862,6 +6984,73 @@
         "homepage": "https://www.drupal.org/project/jquery_ui_droppable",
         "support": {
             "source": "https://git.drupalcode.org/project/jquery_ui_droppable"
+        }
+    },
+    {
+        "name": "drupal/key",
+        "version": "1.14.0",
+        "version_normalized": "1.14.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/key.git",
+            "reference": "8.x-1.14"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/key-8.x-1.14.zip",
+            "reference": "8.x-1.14",
+            "shasum": "097cec8e86b1c164727ca62521a06c36459754f1"
+        },
+        "require": {
+            "drupal/core": "^8.7.7 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.14",
+                "datestamp": "1591765429",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Cellar Door",
+                "homepage": "https://www.drupal.org/user/658076"
+            },
+            {
+                "name": "CrashTest_",
+                "homepage": "https://www.drupal.org/user/261457"
+            },
+            {
+                "name": "nerdstein",
+                "homepage": "https://www.drupal.org/user/1557710"
+            },
+            {
+                "name": "rlhawk",
+                "homepage": "https://www.drupal.org/user/352283"
+            }
+        ],
+        "description": "Provides the ability to manage site-wide keys",
+        "homepage": "http://drupal.org/project/key",
+        "keywords": [
+            "Drupal"
+        ],
+        "support": {
+            "source": "http://cgit.drupalcode.org/key",
+            "issues": "http://drupal.org/project/key"
         }
     },
     {
@@ -9617,6 +9806,118 @@
         }
     },
     {
+        "name": "drupal/rules",
+        "version": "3.0.0-alpha6",
+        "version_normalized": "3.0.0.0-alpha6",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/rules.git",
+            "reference": "8.x-3.0-alpha6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha6.zip",
+            "reference": "8.x-3.0-alpha6",
+            "shasum": "073bf5c23f0ef8f1aebf56538249d50d631d5a24"
+        },
+        "require": {
+            "drupal/core": "^8.7",
+            "drupal/typed_data": "1.x-dev"
+        },
+        "require-dev": {
+            "drupal/typed_data": "1.x-dev"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-3.0-alpha6",
+                "datestamp": "1595975406",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "TR",
+                "homepage": "https://www.drupal.org/user/202830"
+            },
+            {
+                "name": "fago",
+                "homepage": "https://www.drupal.org/user/16747"
+            },
+            {
+                "name": "klausi",
+                "homepage": "https://www.drupal.org/user/262198"
+            }
+        ],
+        "description": "React on events and conditionally evaluate actions.",
+        "homepage": "https://www.drupal.org/project/rules",
+        "support": {
+            "source": "https://git.drupalcode.org/project/rules",
+            "issues": "https://www.drupal.org/project/issues/rules"
+        }
+    },
+    {
+        "name": "drupal/rules_webform",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/rules_webform.git",
+            "reference": "8.x-1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/rules_webform-8.x-1.5.zip",
+            "reference": "8.x-1.5",
+            "shasum": "e690c9aa6e7d62e704e7a4b43441f83663db8cbe"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/rules": "*",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.5",
+                "datestamp": "1600207436",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "wombatbuddy",
+                "homepage": "https://www.drupal.org/user/3547848"
+            }
+        ],
+        "description": "Allows to use Webform submission data in Rules.",
+        "homepage": "https://www.drupal.org/project/rules_webform",
+        "support": {
+            "source": "https://git.drupalcode.org/project/rules_webform"
+        }
+    },
+    {
         "name": "drupal/s3fs",
         "version": "3.0.0-alpha13",
         "version_normalized": "3.0.0.0-alpha13",
@@ -9918,6 +10219,59 @@
             "source": "https://git.drupalcode.org/project/search_api",
             "issues": "https://www.drupal.org/project/issues/search_api",
             "irc": "irc://irc.freenode.org/drupal-search-api"
+        }
+    },
+    {
+        "name": "drupal/shs",
+        "version": "1.0.0-alpha5",
+        "version_normalized": "1.0.0.0-alpha5",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/shs.git",
+            "reference": "8.x-1.0-alpha5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/shs-8.x-1.0-alpha5.zip",
+            "reference": "8.x-1.0-alpha5",
+            "shasum": "6c9004ca33eebe85fb7d1d0d4a6749cd1042ccf5"
+        },
+        "require": {
+            "drupal/core": "^8.8 || ^9"
+        },
+        "require-dev": {
+            "drupal/chosen": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha5",
+                "datestamp": "1598635902",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "jhedstrom",
+                "homepage": "https://www.drupal.org/user/208732"
+            },
+            {
+                "name": "stBorchert",
+                "homepage": "https://www.drupal.org/user/36942"
+            }
+        ],
+        "description": "Creates a simple hierarchical select widget for taxonomy fields.",
+        "homepage": "https://www.drupal.org/project/shs",
+        "support": {
+            "source": "https://git.drupalcode.org/project/shs"
         }
     },
     {
@@ -10364,6 +10718,59 @@
         }
     },
     {
+        "name": "drupal/typed_data",
+        "version": "dev-1.x",
+        "version_normalized": "dev-1.x",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/typed_data.git",
+            "reference": "27555f47b522730d04f3b33c9a46c0acbcb3146e"
+        },
+        "require": {
+            "drupal/core": "^8.8.2 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-alpha5+21-dev",
+                "datestamp": "1600719315",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Dev releases are not covered by Drupal security advisories."
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9 || ^10"
+                }
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "TR",
+                "homepage": "https://www.drupal.org/user/202830"
+            },
+            {
+                "name": "fago",
+                "homepage": "https://www.drupal.org/user/16747"
+            }
+        ],
+        "description": "Extends the core Typed Data API with new APIs and features.",
+        "homepage": "https://www.drupal.org/project/typed_data",
+        "support": {
+            "source": "https://git.drupalcode.org/project/typed_data",
+            "issues": "https://www.drupal.org/project/issues/typed_data"
+        }
+    },
+    {
         "name": "drupal/url_embed",
         "version": "1.0.0-beta1",
         "version_normalized": "1.0.0.0-beta1",
@@ -10798,6 +11205,297 @@
         }
     },
     {
+        "name": "drupal/webform_calculation",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_calculation.git",
+            "reference": "8.x-1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_calculation-8.x-1.0.zip",
+            "reference": "8.x-1.0",
+            "shasum": "f68900925dc6f1e6fe8a1dd0124cdc65600ff851"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0",
+                "datestamp": "1591118596",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "aprogs",
+                "homepage": "https://www.drupal.org/user/2281272"
+            },
+            {
+                "name": "culfin",
+                "homepage": "https://www.drupal.org/user/312644"
+            }
+        ],
+        "description": "Provides ability to make dynamic calculations using Webform.",
+        "homepage": "https://www.drupal.org/project/webform_calculation",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_calculation"
+        }
+    },
+    {
+        "name": "drupal/webform_composite",
+        "version": "1.0.0-rc2",
+        "version_normalized": "1.0.0.0-RC2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_composite.git",
+            "reference": "8.x-1.0-rc2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_composite-8.x-1.0-rc2.zip",
+            "reference": "8.x-1.0-rc2",
+            "shasum": "08d7c23d8b4014d066598ae4b7632682c05bcd83"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-rc2",
+                "datestamp": "1591213393",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "richgerdes",
+                "homepage": "https://www.drupal.org/user/3437973"
+            }
+        ],
+        "description": "Additional tools for Webform Composites.",
+        "homepage": "https://www.drupal.org/project/webform_composite",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_composite"
+        }
+    },
+    {
+        "name": "drupal/webform_content_creator",
+        "version": "1.7.0",
+        "version_normalized": "1.7.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_content_creator.git",
+            "reference": "8.x-1.7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_content_creator-8.x-1.7.zip",
+            "reference": "8.x-1.7",
+            "shasum": "67130c34b93751915226156e4ec356847659409d"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "*",
+            "drupal/webform_encrypt": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.7",
+                "datestamp": "1599215468",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "-nrzr-",
+                "homepage": "https://www.drupal.org/user/3522063"
+            },
+            {
+                "name": "Miguelpamferreira",
+                "homepage": "https://www.drupal.org/user/3548054"
+            },
+            {
+                "name": "Nelson Alves",
+                "homepage": "https://www.drupal.org/user/3557178"
+            },
+            {
+                "name": "Rosa Pascoal Garcia",
+                "homepage": "https://www.drupal.org/user/3500109"
+            },
+            {
+                "name": "dgaspara",
+                "homepage": "https://www.drupal.org/user/3557179"
+            },
+            {
+                "name": "joaomarques736",
+                "homepage": "https://www.drupal.org/user/3557181"
+            },
+            {
+                "name": "ricardotenreiro",
+                "homepage": "https://www.drupal.org/user/213132"
+            }
+        ],
+        "description": "Allows you to create nodes and do mappings between respective fields and webform submission values.",
+        "homepage": "https://www.drupal.org/project/webform_content_creator",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_content_creator"
+        }
+    },
+    {
+        "name": "drupal/webform_dynamic_autocomplete",
+        "version": "8.9.4",
+        "version_normalized": "8.9.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_dynamic_autocomplete.git",
+            "reference": "8.9.4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_dynamic_autocomplete-8.9.4.zip",
+            "reference": "8.9.4",
+            "shasum": "d065817f27b5ceff83b5f61dca5a7ed4292a4a70"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "^5"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.9.4",
+                "datestamp": "1596883927",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Kushal Bansal",
+                "homepage": "https://www.drupal.org/user/3478917"
+            }
+        ],
+        "description": "Provides Webform Dynamic Autocomplete field for Webform in Drupal 8.",
+        "homepage": "https://www.drupal.org/project/webform_dynamic_autocomplete",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_dynamic_autocomplete"
+        }
+    },
+    {
+        "name": "drupal/webform_encrypt",
+        "version": "1.0.0-alpha3",
+        "version_normalized": "1.0.0.0-alpha3",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_encrypt.git",
+            "reference": "8.x-1.0-alpha3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_encrypt-8.x-1.0-alpha3.zip",
+            "reference": "8.x-1.0-alpha3",
+            "shasum": "882b560eb66a8b00f2b0f3fc1829646e08fde48f"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/encrypt": "3.*",
+            "drupal/webform": ">=5.0.0-rc22"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha3",
+                "datestamp": "1552462384",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Tushar Thatikonda (th_tushar)",
+                "homepage": "https://www.drupal.org/u/th_tushar",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Manuel Garcia (Manuel Garcia)",
+                "homepage": "https://www.drupal.org/u/manuel-garcia",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "Vijaya Chandran Mani (vijaycs85)",
+                "homepage": "https://www.drupal.org/u/vijaycs85",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "Saul Willers (fenstrat)",
+                "homepage": "https://www.drupal.org/u/fenstrat",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "Rob Holmes (Rob Holmes)",
+                "homepage": "https://www.drupal.org/u/rob-holmes",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "Jean Ribeiro (jribeiro)",
+                "homepage": "https://www.drupal.org/u/jribeiro",
+                "role": "Co-maintainer"
+            }
+        ],
+        "description": "Provides encryption for webform components.",
+        "homepage": "https://drupal.org/project/webform_encrypt",
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform_encrypt",
+            "issues": "https://drupal.org/project/issues/webform_encrypt"
+        }
+    },
+    {
         "name": "drupal/webform_migrate",
         "version": "1.1.0",
         "version_normalized": "1.1.0.0",
@@ -10930,6 +11628,419 @@
         "homepage": "https://www.drupal.org/project/webform",
         "support": {
             "source": "https://git.drupalcode.org/project/webform"
+        }
+    },
+    {
+        "name": "drupal/webform_nouislider",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_nouislider.git",
+            "reference": "8.x-2.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_nouislider-8.x-2.1.zip",
+            "reference": "8.x-2.1",
+            "shasum": "b170a5d6025f4a10e7685c4b8ae9a6c0ab8d0325"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-2.1",
+                "datestamp": "1594635684",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "vks7056",
+                "homepage": "https://www.drupal.org/user/1960314"
+            }
+        ],
+        "description": "Provides webform nouislider Element.",
+        "homepage": "https://www.drupal.org/project/webform_nouislider",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_nouislider"
+        }
+    },
+    {
+        "name": "drupal/webform_prepopulate",
+        "version": "1.0.0-alpha4",
+        "version_normalized": "1.0.0.0-alpha4",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_prepopulate.git",
+            "reference": "8.x-1.0-alpha4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_prepopulate-8.x-1.0-alpha4.zip",
+            "reference": "8.x-1.0-alpha4",
+            "shasum": "202af952df3b0a518410e7d0641bebc7a8cfd258"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "~5.1",
+            "drupal/webform_ui": "*",
+            "ext-mbstring": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha4",
+                "datestamp": "1588270926",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "JohnAlbin",
+                "homepage": "https://www.drupal.org/user/32095"
+            },
+            {
+                "name": "Leksat",
+                "homepage": "https://www.drupal.org/user/390336"
+            },
+            {
+                "name": "VD39",
+                "homepage": "https://www.drupal.org/user/3560802"
+            },
+            {
+                "name": "blazey",
+                "homepage": "https://www.drupal.org/user/353861"
+            },
+            {
+                "name": "colorfield",
+                "homepage": "https://www.drupal.org/user/2295486"
+            },
+            {
+                "name": "dan2k3k4",
+                "homepage": "https://www.drupal.org/user/2437398"
+            },
+            {
+                "name": "una_maria",
+                "homepage": "https://www.drupal.org/user/3342662"
+            }
+        ],
+        "description": "Pre-populate a Webform with an external data source without disclosing information in the URL.",
+        "homepage": "https://www.drupal.org/project/webform_prepopulate",
+        "keywords": [
+            "Drupal"
+        ],
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform_prepopulate",
+            "issues": "https://www.drupal.org/project/issues/webform_prepopulate"
+        }
+    },
+    {
+        "name": "drupal/webform_select_collection",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_select_collection.git",
+            "reference": "8.x-1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_select_collection-8.x-1.1.zip",
+            "reference": "8.x-1.1",
+            "shasum": "ef0ded803fe82fb92be02c2fc053c203be880343"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9",
+            "drupal/webform": "^5.0 || ^6.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.1",
+                "datestamp": "1591134988",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Kirill Roskolii (RoSk0)",
+                "homepage": "https://www.drupal.org/user/325151",
+                "role": "Maintainer"
+            }
+        ],
+        "description": "Provides webform element that groups multiple select elements into single collection.",
+        "homepage": "https://drupal.org/project/webform_select_collection",
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform_select_collection",
+            "issues": "https://www.drupal.org/project/issues/webform_select_collection?version=8.x",
+            "docs": "https://www.drupal.org/docs/8/modules/webform-select-collection"
+        }
+    },
+    {
+        "name": "drupal/webform_shs",
+        "version": "1.0.0-alpha3",
+        "version_normalized": "1.0.0.0-alpha3",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_shs.git",
+            "reference": "8.x-1.0-alpha3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_shs-8.x-1.0-alpha3.zip",
+            "reference": "8.x-1.0-alpha3",
+            "shasum": "4d1caf6d4ea36d3bb3249dba245a6bd24e2fd2ab"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/shs": "^1.0.0-alpha3",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha3",
+                "datestamp": "1541174281",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Cornel Andreev",
+                "homepage": "https://www.drupal.org/u/hugronaphor",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Adam Bramley",
+                "homepage": "https://www.drupal.org/u/acbramley",
+                "role": "Initial Drupal 8 port"
+            }
+        ],
+        "description": "Provides an SHS term select element for webform",
+        "homepage": "http://drupal.org/project/webform_shs",
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform_shs",
+            "issues": "https://www.drupal.org/project/issues/webform_shs"
+        }
+    },
+    {
+        "name": "drupal/webform_summation_field",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_summation_field.git",
+            "reference": "8.x-1.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_summation_field-8.x-1.3.zip",
+            "reference": "8.x-1.3",
+            "shasum": "ac5479a173301eb0f56f07ccc3c45ab866069e03"
+        },
+        "require": {
+            "drupal/core": "^8"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.3",
+                "datestamp": "1576576686",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Li Qing",
+                "homepage": "https://www.drupal.org/user/3404020"
+            },
+            {
+                "name": "aloneblood",
+                "homepage": "https://www.drupal.org/user/3158665"
+            }
+        ],
+        "description": "Provides a webform summation field to collect the values of other fields.",
+        "homepage": "https://www.drupal.org/project/webform_summation_field",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_summation_field"
+        }
+    },
+    {
+        "name": "drupal/webform_ui",
+        "version": "5.22.0",
+        "version_normalized": "5.22.0.0",
+        "require": {
+            "drupal/core": "^8.8",
+            "drupal/webform": "*"
+        },
+        "type": "metapackage",
+        "extra": {
+            "drupal": {
+                "version": "8.x-5.22",
+                "datestamp": "1601919522",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "DanChadwick",
+                "homepage": "https://www.drupal.org/user/504278"
+            },
+            {
+                "name": "Liam Morland",
+                "homepage": "https://www.drupal.org/user/493050"
+            },
+            {
+                "name": "bucefal91",
+                "homepage": "https://www.drupal.org/user/504128"
+            },
+            {
+                "name": "fenstrat",
+                "homepage": "https://www.drupal.org/user/362649"
+            },
+            {
+                "name": "jrockowitz",
+                "homepage": "https://www.drupal.org/user/371407"
+            },
+            {
+                "name": "podarok",
+                "homepage": "https://www.drupal.org/user/116002"
+            },
+            {
+                "name": "quicksketch",
+                "homepage": "https://www.drupal.org/user/35821"
+            },
+            {
+                "name": "sanchiz",
+                "homepage": "https://www.drupal.org/user/1671246"
+            },
+            {
+                "name": "tedbow",
+                "homepage": "https://www.drupal.org/user/240860"
+            },
+            {
+                "name": "torotil",
+                "homepage": "https://www.drupal.org/user/865256"
+            }
+        ],
+        "description": "Provides a user interface for building and maintaining webforms.",
+        "homepage": "https://www.drupal.org/project/webform",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform"
+        }
+    },
+    {
+        "name": "drupal/webform_views",
+        "version": "5.0.0-alpha7",
+        "version_normalized": "5.0.0.0-alpha7",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_views.git",
+            "reference": "8.x-5.0-alpha7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_views-8.x-5.0-alpha7.zip",
+            "reference": "8.x-5.0-alpha7",
+            "shasum": "6c9bb51735a106729dcfa08372e987ebf95d38f2"
+        },
+        "require": {
+            "drupal/core": "^8",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-5.0-alpha7",
+                "datestamp": "1557288185",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "acbramley",
+                "homepage": "https://www.drupal.org/user/1036766"
+            },
+            {
+                "name": "bucefal91",
+                "homepage": "https://www.drupal.org/user/504128"
+            },
+            {
+                "name": "jrockowitz",
+                "homepage": "https://www.drupal.org/user/371407"
+            },
+            {
+                "name": "matio89",
+                "homepage": "https://www.drupal.org/user/2320090"
+            },
+            {
+                "name": "ws.agency",
+                "homepage": "https://www.drupal.org/user/2851415"
+            }
+        ],
+        "description": "Webform integration with views.",
+        "homepage": "https://www.drupal.org/project/webform_views",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_views"
         }
     },
     {

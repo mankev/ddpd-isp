@@ -1,0 +1,46 @@
+webform_submit:
+  label: 'Webform submit'
+  category: 'A Webform'
+  context_definitions:
+    webform_fields:
+      type: 'webform_fields'
+      label: 'Webform fields'
+    webform_info:
+      type: 'webform_info'
+      label: 'Webform info'
+
+updating_submission:
+  label: 'Updating a submission'
+  category: 'A Webform'
+  context_definitions:
+    webform_fields:
+      type: 'webform_fields'
+      label: 'Webform fields'
+    webform_fields_unchanged:
+      type: 'webform_fields_unchanged'
+      label: 'Webform fields unchanged'
+    webform_info:
+      type: 'webform_info'
+      label: 'Webform info'
+
+deleting_submission:
+  label: 'Deleting a submission'
+  category: 'A Webform'
+  context_definitions:
+    webform_fields:
+      type: 'webform_fields'
+      label: 'Webform fields'
+    webform_info:
+      type: 'webform_info'
+      label: 'Webform info'
+
+viewing_submission:
+  label: 'Viewing a submission'
+  category: 'A Webform'
+  context_definitions:
+    webform_fields:
+      type: 'webform_fields'
+      label: 'Webform fields'
+    webform_info:
+      type: 'webform_info'
+      label: 'Webform info'

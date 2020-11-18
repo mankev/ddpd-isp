@@ -1,0 +1,7 @@
+webform_dynamic_autocomplete.settings:
+  path: "/admin/config/webform_dynamic_autocomplete/settings"
+  defaults:
+    _form: '\Drupal\webform_dynamic_autocomplete\Form\WebformDynamicSettingsForm'
+    _title: "WEBFORM DYNAMIC CONFIGURATION SETTINGS"
+  requirements:
+    _permission: "administer site configuration"

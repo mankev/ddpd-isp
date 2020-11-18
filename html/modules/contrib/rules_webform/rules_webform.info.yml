@@ -1,0 +1,13 @@
+name: 'Rules Webform'
+type: module
+description: 'Allows to use Webform submission data in Rules.'
+core: 8.x
+package: 'Rules'
+dependencies:
+  - rules:rules
+  - webform:webform
+
+# Information added by Drupal.org packaging script on 2020-09-15
+version: '8.x-1.5'
+project: 'rules_webform'
+datestamp: 1600207438

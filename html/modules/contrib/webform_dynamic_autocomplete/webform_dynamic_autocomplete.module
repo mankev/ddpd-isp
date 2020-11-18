@@ -1,0 +1,61 @@
+<?php 
+
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Implements hook_webform_options_WEBFORM_OPTIONS_ID_alter().
+ */
+function webform_dynamic_autocomplete_webform_options_autocomplete_dynamic_alter(array &$options, array &$element) {
+
+  $query = \Drupal::request()->query->get('q');
+  $config = \Drupal::config('webform_dynamic.settings');
+  $endpoint = $config->get('webform_dynamic_endpoint_url');
+  $query_parameter = $config->get('webform_dynamic_query_parameter');
+  $url = $endpoint.'?'.$query_parameter.'='.$query;
+
+  //$external_countries_url = 'https://api-uat.apps1.nsw.gov.au/planning/viewersf/V1/ePlanningApi/address?a='.$query.'';
+//   $external_countries_url = '/nsw_address/address_list';
+  $check = json_decode(file_get_contents($url), TRUE);
+  if($check!=null && is_array($check)){
+    $options = $check;
+  }
+  else{
+    $options = [];
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function webform_dynamic_autocomplete_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  if ($route_name == 'help.page.webform_dynamic_autocomplete') {
+    return t('This module provides a new element field in webform for Dynamically handling Autocomplete API request.</br>
+    In this, you can define your own API end point in the configuration.</br>
+     As per the defined endpoint, you will get the autocomplete options.</br> 
+     Presently you have to select the autocomplete options from the given options in Autocomplete field in webform.</br>
+
+    The Api endpoint must return the data in form of key and value pairs, only then the autocomplete dynamic field will work properly. otherwise It will not work as required.
+    
+    There are Configuration Settings form at below url:-</br>
+    </br>
+    <b>/admin/config/webform_dynamic_autocomplete/settings</b>-</br>
+    </br>
+    Here , you have 2 fields</br>
+    1. Endpoint URL--It should be an get request api endpoint with json response in key-value form
+    ex:-https://www.drupal.org/publicdata</br>
+    2.Query Parameter--- which will take your searched value in the autocomplete field.
+    example:- "a"</br>
+    
+    the complete Url should be like below dummy example:-</br>
+    
+    https://www.drupal.org/publicdata?a="searched-parameter"</br>
+    
+    Note:- Without above configuration your module will not work.</br>
+    
+    3.After above configuration go to your webform and add an autocomplete element</br>
+    
+    4. Go to Select Custom Options field. IN this field you will find your Dynamic Autocomplete Option.</br>
+    5. Choose the Option and save the element.</br>
+    6. Go to your form page and check the Autocomplete Field. It should give you the data as required in autocomplete form for your external or dynamic Api.');
+  }
+}

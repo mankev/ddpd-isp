@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform_dynamic_autocomplete
+id: autocomplete_dynamic
+label: "Dynamic Autocomplete options"
+category: Dynamic Autocomplete
+likert: false
+options: ""

@@ -1,0 +1,23 @@
+<?php
+
+use Drupal\Core\Render\Markup;
+use Drupal\handsontable_yml_webform\Element\Handsontable;
+
+/**
+ * Implements hook_requirements().
+ */
+function handsontable_yml_webform_requirements() {
+  $sError = Handsontable::getLibInstructionsIfNeeded(__DIR__);
+  if (!$sError) {
+    return [];
+  }
+
+  return [
+    'handsontable_yml_webform' => [
+      'title' => t('Handsontable For YML Webform'),
+      'value' => t('There are files missing.'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => Markup::create($sError),
+    ],
+  ];
+}
