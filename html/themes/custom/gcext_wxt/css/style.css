@@ -1,0 +1,40 @@
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+
+/* Fix arrows escaping the select field */
+.field--type-webform form .form-type-select label{
+    display: block;
+}
+.field--type-webform form .form-type-select .select-wrapper{
+    width: auto;
+}
+
+.toc li .list-group-item.is-active, .toc li .list-group-item.active:focus, .toc li .list-group-item.active:hover {
+    background-color: #335075;
+    color: #fff;
+    cursor: auto;
+    text-decoration: none;
+    z-index: 2;
+}
+
+article.overview .file {
+    display: block;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+section.block-field-blocknodeoverviewfield-overview-html {
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+section.block-field-blocknodeoverviewfield-overview-pdf {
+  margin-left: 50px;
+  padding-bottom: 10px;
+}
+
+section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-related-documents {
+  padding-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+gcext.admin_config_gcext:
+  path: '/admin/config/gcext'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'GCExt'
+  requirements:
+    _permission: 'administer site configuration'
+gcext_settings.admin_config_gcext:
+  path: '/admin/config/gcext/gcext'
+  defaults:
+    _title: 'GCExt module settings'
+    _form: '\Drupal\gcext\Form\GcextSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

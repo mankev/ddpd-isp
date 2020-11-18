@@ -1,0 +1,209 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\user\UserInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Datetime\DrupalDateTime;
+
+function gcext_moderation_sidebar_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+    $option = [
+      'attributes' => [
+        'class' => ['btn', 'btn-primary'],
+        'target' => '_blank',
+       ]
+    ];
+    $url = Url::fromUri('internal:/node/' . $entity->id() . '/node-links', $option);
+    $link = Link::fromTextAndUrl(t('View pages with links to this page'), $url);
+    $build['linked_nodes'] = $link->toRenderable();
+    $build['page_info'] = views_embed_view('page_information', 'block_1', $entity->id());
+    //unset($build['actions']);
+  }
+}
+
+/**
+ * Set active and active-trail class for book toc recursively.
+ */
+function gcext_preprocess_book_tree(&$variables) {
+  $current_path = \Drupal::request()->getRequestUri();
+  foreach ($variables['items'] as &$item) {
+    if ($item['in_active_trail']) {
+      if ($item['url']->toString() == $current_path) {
+        $item['is_active'] = TRUE;
+      } elseif (count($item['below'])) {
+         _gcext_menu_process_submenu($item['below'], $current_path);
+      }
+    }
+  }
+}
+
+/**
+ * Set active and active-trail class for sub-menus recursively.
+ */
+function _gcext_menu_process_submenu(&$submenu, $current_path) {
+  foreach ($submenu as &$item) {
+    if ($item['in_active_trail']) {
+      if ($item['url']->toString() == $current_path) {
+        $item['is_active'] = TRUE;
+      } elseif (count($item['below'])) {
+        _gcext_menu_process_submenu($item['below'], $current_path);
+      }
+    }
+  }
+}
+
+function gcext_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'custom_search_block_form':
+      /*
+      $form['actions']['submit']['#id'] = 'wb-srch-sub';
+      $form['actions']['submit']['#name'] = 'op';
+      $form['actions']['submit']['#value'] = '';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
+       */
+      //$form['actions']['submit']['#submit'][] = 'gcext_search_submit';
+    break;
+  }
+
+}
+
+function gcext_menu_local_tasks_alter(&$data, $route_name) {
+  $user = \Drupal::currentUser();
+  $routes = [
+    'entity.node.canonical',
+    'entity.node.edit_form',
+    'entity.node.delete_form',
+    'entity.node.version_history',
+    'node_authlink.node_authlink_node_form',
+    'entity_clone.clone:node.clone_tab',
+    'entity.node.convert_bundles',
+    'node.latest_version_tab',
+    'view.moderation_history.page',
+    'entity.node.content_translation_overview',
+    'entity.node.devel_load',
+  ];
+
+  if (in_array($route_name, $routes)) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    // hide devel tab for anyone but user 1 / admin
+    if ($user->id() != 1 && isset($data['tabs'][0]['entity.node.devel_load'])) {
+      unset($data['tabs'][0]['entity.node.devel_load']);
+    }
+    unset($data['tabs'][0]['entityqueue.entities:entity.node.entityqueue']);
+    unset($data['tabs'][0]['entity.node.book_outline_form']);
+    $data['tabs'][0]['convert_bundles.entities:entity.node.convert_bundles']['#link']['title'] = t('Convert');
+  }
+}
+
+function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  if (!empty($breadcrumb) && !\Drupal::service('router.admin_context')->isAdminRoute() && 'layout_builder.defaults.node.view' != $route_match->getRouteName()) {
+    $links = $breadcrumb->getLinks();
+    array_shift($links);
+
+    // prepend links
+    $new_links = [];
+    $title = 'Canada.ca';
+    $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $url = Url::fromUri('https://www.canada.ca/' . $lang . '.html');
+    $new_links[] = Link::fromTextAndUrl(t($title), $url);
+    if (!\Drupal::service('path.matcher')->isFrontPage()) {
+      $new_links[] = Link::fromTextAndUrl(t('Canada Revenue Agency'), Url::fromRoute('<front>'));
+    }
+
+    // remove search from breadcrumb
+    if ($route_match->getRouteName() == 'view.site_search.page_1') {
+      $links = [];
+    }
+
+    // create new breadcrumb if node flagged for it
+    $node = $route_match->getParameter('node');
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($node && $node->hasfield('field_autobc')) {
+      $links = [];
+      $autobc = $node->get('field_autobc')->getValue();
+      if ($autobc && $autobc[0]['value'] == 1 && !$node->get('field_site_ia')->isEmpty()) {
+        $ia_term = $node->get('field_site_ia')->first()->getValue();
+        $lineage = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadAllParents($ia_term['target_id']);
+        foreach (array_reverse($lineage) as $tid => $term) {
+          $term = $term->getTranslation($langcode);
+          $label = $term->label();
+
+          $isExternal = $term->get('field_ref_is_external')->getValue();
+          if (isset($isExternal[0]['value']) && $isExternal[0]['value']) {
+            if (!$term->get('field_external_ref')->isEmpty()) {
+              $extref = $term->get('field_external_ref')->getValue();
+              $links[] = Link::fromTextAndUrl($label, Url::fromUri($extref[0]['uri']));
+            }
+          }
+          else {
+            if (!$term->get('field_page_ref')->isEmpty()) {
+              $noderef = $term->get('field_page_ref')->getValue();
+              $links[] = Link::fromTextAndUrl($label, Url::fromRoute('entity.node.canonical', ['node' => $noderef[0]['target_id']]));
+            }
+          }
+        }
+      }
+    }
+
+
+    $breadcrumb = new Breadcrumb();
+    $breadcrumb->setLinks(array_merge($new_links, $links));
+    $breadcrumb->addCacheContexts(['route']);
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function gcext_entity_type_alter(array &$entity_types) {
+  foreach ($entity_types as $entity_type) {
+    $constraints = $entity_type->getConstraints();
+    unset($constraints['EntityUntranslatableFields']);
+    $entity_type->setConstraints($constraints);
+  }
+}
+
+/**
+ * Implements hook_webform_element_ELEMENT_TYPE_alter().
+ */
+function gcext_webform_element_webform_time_alter(array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context) {
+  // change time format to 24h for French
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if ($lang == 'fr') {
+    $element['#time_format'] = 'H:i';
+  }
+}
+
+function gcext_entity_embed_alter(&$build, $entity, &$context) {
+  // This is a workaround to a problem where manually added classes to embedded entities are supposed
+  // to inherit any classes added to the drupal-entity object.
+  // This code will pass classes to img tag
+  if (isset($build['#attributes']['class']) && count($build['#attributes']['class']) > 1) {
+    $classes = $build['#attributes']['class'];
+    if (($key = array_search('embedded-entity', $classes)) !== FALSE) {
+      unset($classes[$key]);
+    }
+    $build['entity']['#item_attributes']['class'] = $classes;
+  }
+}
+
+function gcext_build_url(array $parts) {
+  return (isset($parts['scheme']) ? "{$parts['scheme']}:" : '') .
+      ((isset($parts['user']) || isset($parts['host'])) ? '//' : '') .
+      (isset($parts['user']) ? "{$parts['user']}" : '') .
+      (isset($parts['pass']) ? ":{$parts['pass']}" : '') .
+      (isset($parts['user']) ? '@' : '') .
+      (isset($parts['host']) ? "{$parts['host']}" : '') .
+      (isset($parts['port']) ? ":{$parts['port']}" : '') .
+      (isset($parts['path']) ? "{$parts['path']}" : '') .
+      (isset($parts['query']) ? "?{$parts['query']}" : '') .
+      (isset($parts['fragment']) ? "#{$parts['fragment']}" : '');
+}

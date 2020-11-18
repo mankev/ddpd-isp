@@ -1,0 +1,7 @@
+name: GC Ext Module
+description: Custom site glue code
+package: Custom
+type: module
+version: 1.0
+core: 8.x
+configure: gcext_settings.admin_config_gcext

@@ -1,0 +1,12 @@
+# Schema for the theme setting configuration file of the gcext_wxt theme.
+
+gcext_wxt.settings:
+  type: theme_settings
+  label: 'GC Ext WxT settings'
+  mapping:
+    cdn_provider:
+      type: string
+      label: 'CDN Provider'
+    breadcrumb_home:
+      type: integer
+      label: 'Breadcrumb Home'

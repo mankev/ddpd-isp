@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * WxT Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+function gcext_wxt_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  if ($node->getType() == 'institution') {
+    $features = $node->get('field_inst_features');
+    foreach ($features as $key => $feature) {
+      $bid = $feature->entity->id();
+      $block = \Drupal\block_content\Entity\BlockContent::load($bid);
+      if ($block->isTranslatable()) {
+        $block = \Drupal::service('entity.repository')->getTranslationFromContext($block);
+      }
+      $spotlight = $block->get('field_spotlight_media')->getValue();
+      $media = \Drupal::entityTypeManager()->getStorage('media')->load($spotlight[0]['target_id']);
+      if ($media->isTranslatable()) {
+        $media = \Drupal::service('entity.repository')->getTranslationFromContext($media);
+      }
+      $link = $media->get('field_image_link')->getValue();
+
+      $variables['features_uri'][$key] = $link[0]['uri'];
+    }
+  }
+}
+
+function gcext_wxt_preprocess_page_title(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if (isset($node->book) && !empty($node->book) && $node->book['bid'] != $node->id()) {
+      $book =  \Drupal::entityTypeManager()->getStorage('node')->load($node->book['bid']);
+      if ($book) {
+        if ($book->hasTranslation($langcode)) {
+          $book = $book->getTranslation($langcode);
+        }
+        $variables['book_title'] = $book->getTitle();
+      }
+    }
+  }
+}
+
+function gcext_wxt_preprocess_region(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node->hasField('field_fluid_page') && !$node->get('field_fluid_page')->isEmpty()) {
+      $is_fluid = $node->get('field_fluid_page')->getValue();
+      if ($is_fluid[0]['value'] == 1) {
+        $variables['fluid_page'] = TRUE;
+      }
+    } 
+  }
+}
+
+function gcext_wxt_preprocess_book_navigation(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node->hasField('field_fluid_page') && !$node->get('field_fluid_page')->isEmpty()) {
+      $is_fluid = $node->get('field_fluid_page')->getValue();
+      if ($is_fluid[0]['value'] == 1) {
+        $variables['fluid_page'] = TRUE;
+      }
+    } 
+  }
+}
+
+function gcext_wxt_preprocess_field(&$variables) {
+  if ($variables['entity_type'] == 'block_content' && $variables['field_name'] == 'field_title') {
+    $block = $variables['element']['#object'];
+    // heading class
+    $class = $block->get('field_heading_class')->getValue();
+    $variables['title_class'] = isset($class[0]['value']) && !empty($class[0]['value']) ? $class[0]['value'] : NULL;
+
+    // heading tag
+    $heading = $block->get('field_title_heading')->getValue();
+    $variables['title_heading'] = isset($heading[0]['value']) && !empty($heading[0]['value']) ? $heading[0]['value'] : NULL;
+  }
+}
+
+function gcext_wxt_preprocess_entity_embed_container(&$variables) {
+  $entity = $variables['element']['#entity'];
+  if ($entity instanceof \Drupal\block_content\Entity\BlockContent) {
+    if ($entity->bundle() == 'alert') {
+      $alert_type = $class = $entity->get('field_alert_type')->getValue();
+      $variables['alert_type'] = isset($alert_type[0]['value']) && !empty($alert_type[0]['value']) ? $alert_type[0]['value'] : NULL;
+    }
+  }
+}

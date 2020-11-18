@@ -8,10 +8,6 @@ html/sites/*/files
 
 # Composer files
 composer.lock
-html
-vendor
-*/*/*/vendor
-*/*/vendor
 
 # Ignore Development Files
 compass_app_log.txt

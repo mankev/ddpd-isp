@@ -1,0 +1,11 @@
+gcext.admin_config_gcext:
+  title: GCExt
+  parent: system.admin_config
+  route_name: gcext.admin_config_gcext
+
+gcext_settings.admin_config_gcext:
+  title: GCExt module settings
+  description: 'Settings specific to GCExt module.'
+  parent: gcext.admin_config_gcext
+  route_name: gcext_settings.admin_config_gcext
+  weight: -10
