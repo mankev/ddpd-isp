@@ -1,0 +1,13 @@
+name: Workflows Field Test Workflows
+type: module
+description: Adds test workflows.
+# core: 8.x
+
+dependencies:
+  - workflows_field
+
+# Information added by Drupal.org packaging script on 2017-11-21
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'workflows_field'
+datestamp: 1511243287
