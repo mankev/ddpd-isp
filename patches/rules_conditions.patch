@@ -1,0 +1,13 @@
+diff --git a/html/modules/contrib/rules/src/Core/ConditionManager.php b/html/modules/contrib/rules/src/Core/ConditionManager.php
+index a38573bb..3a4326d0 100644
+--- a/html/modules/contrib/rules/src/Core/ConditionManager.php
++++ b/html/modules/contrib/rules/src/Core/ConditionManager.php
+@@ -57,7 +57,7 @@ public function getDefinitions() {
+         // defined by the CategorizingPluginManager. Thus, we assume that any
+         // condition without a 'category' is a core Condition and we remove it
+         // from  list of plugin definitions used by the Rules UI.
+-        unset($definitions[$key]);
++        //unset($definitions[$key]);
+       }
+     }
+     return $definitions;

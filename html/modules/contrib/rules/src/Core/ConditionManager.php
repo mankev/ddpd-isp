@@ -57,7 +57,7 @@ class ConditionManager extends CoreConditionManager {
         // defined by the CategorizingPluginManager. Thus, we assume that any
         // condition without a 'category' is a core Condition and we remove it
         // from  list of plugin definitions used by the Rules UI.
-        unset($definitions[$key]);
+        //unset($definitions[$key]);
       }
     }
     return $definitions;

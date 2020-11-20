@@ -110,7 +110,12 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches": { },
+        "patches": {
+            "drupal/rules": {
+               "Enabling rules removes conditions from features outside of rules":
+               "patches/rules_conditions.patch"
+            }
+        },
         "patches-ignore": {
             "acquia/lightning": {
                 "drupal/core": {
