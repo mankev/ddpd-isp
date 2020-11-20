@@ -30,7 +30,8 @@
         "drupal/realname": "^1.0@RC",
         "drupal/comment_ajax_pager": "^1.5",
         "drupal/ajax_comments": "^1.0@beta",
-        "drupal/devel": "^4.0"
+        "drupal/devel": "^4.0",
+        "drupal/workflow_notifications": "^1.0@alpha"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
@@ -111,10 +112,6 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "drupal/rules": {
-               "Enabling rules removes conditions from features outside of rules":
-               "patches/rules_conditions.patch"
-            }
         },
         "patches-ignore": {
             "acquia/lightning": {
