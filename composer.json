@@ -31,7 +31,8 @@
         "drupal/comment_ajax_pager": "^1.5",
         "drupal/ajax_comments": "^1.0@beta",
         "drupal/devel": "^4.0",
-        "drupal/workflow_notifications": "^1.0@alpha"
+        "drupal/workflow_notifications": "^1.0@alpha",
+        "drupal/views_argument_token": "^1.0@beta"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
