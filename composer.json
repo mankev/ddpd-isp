@@ -22,7 +22,7 @@
         "drupal/webform_prepopulate": "^1.0@alpha",
         "drupal/webform_content_creator": "^1.7",
         "drupal/rules_webform": "^1.5",
-        "drupal/rules": "^3.0@alpha",
+        "drupal/rules": "3.x-dev",
         "drupal/webform_views": "^5.0@alpha",
         "drupal/shield": "^1.4",
         "drupal/workflow": "^1.4",
