@@ -84,3 +84,11 @@ section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-re
   border-bottom: 1px solid #d4d4d4;
 }
 
+
+table tr.urgent {
+  border-left: 7px solid rgba(255, 0, 0);
+}
+
+table tr.high {
+  border-left: 7px solid rgba(255, 255, 0);
+}
