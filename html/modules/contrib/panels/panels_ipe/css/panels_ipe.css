@@ -702,21 +702,9 @@ div.ipe-actions-block {
 .ipe-block-form .flip-container {
   perspective: 1000;
 }
-
-/* flip the pane when trigger toggle preview button */
-.ipe-block-form.flipped .back {
-  -webkit-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-}
-
-/* flip the pane when trigger toggle preview button */
-.ipe-block-form.flipped .front {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
+/* flip the pane when hovered */
+.ipe-block-form.flipped .flipper,
+.ipe-block-form.flipped .flipper {
   transform: rotateY(180deg);
 }
 

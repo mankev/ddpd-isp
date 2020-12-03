@@ -119,6 +119,10 @@
             "drupal/core": {
                 "3183425 - Claro has artifacts in chrome":
                 "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch"
+            },
+            "drupal/panels": {
+                "3186390 - Add default class and ability to configure additional classes to variants":
+            "https://www.drupal.org/files/issues/2020-12-03/panels-add_classes_variant-3186390-2.patch"
             }
         },
         "patches-ignore": {

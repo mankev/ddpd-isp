@@ -25,6 +25,7 @@ use Drupal\panels\Plugin\DisplayBuilder\DisplayBuilderInterface;
 use Drupal\panels\Plugin\DisplayBuilder\DisplayBuilderManagerInterface;
 use Drupal\panels\Plugin\PanelsPattern\PanelsPatternInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Component\Utility\Html;
 
 /**
  * Provides a display variant that simply contains blocks.
@@ -332,11 +333,22 @@ class PanelsDisplayVariant extends BlockDisplayVariant implements PluginWizardIn
   }
 
   /**
+   * Returns the configured add body classes.
+   *
+   * @return string
+   */
+  public function getAddBodyClasses() {
+    return !empty($this->configuration['body_classes_to_add']) ?  explode(' ', $this->configuration['body_classes_to_add']) : [];
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function build() {
     $build = $this->getBuilder()->build($this);
     $build['#title'] = $this->getRenderedPageTitle();
+    $default_class = Html::cleanCssIdentifier($this->getStorageId());
+    $build['#attributes']['class'] = array_merge((array) $default_class, $this->getAddBodyClasses());
 
     // Allow other module to alter the built panel.
     $this->moduleHandler->alter('panels_build', $build, $this);
@@ -368,6 +380,14 @@ class PanelsDisplayVariant extends BlockDisplayVariant implements PluginWizardIn
       '#default_value' => !empty($this->configuration['builder']) ? $this->configuration['builder'] : 'standard',
     ];
 
+    $form['body_classes_to_add'] = array(
+      '#type' => 'textfield',
+      '#size' => 128,
+      '#default_value' => empty($this->configuration['body_classes_to_add']) ? '' : $this->configuration['body_classes_to_add'],
+      '#title' => t('Add body CSS classes'),
+      '#description' => t('The CSS classes to add to the body element of this page. Separated by a space. For example: no-sidebars one-sidebar sidebar-first sidebar-second two-sidebars. Keywords from context are allowed.'),
+    );
+
     return $form;
   }
 
@@ -379,6 +399,9 @@ class PanelsDisplayVariant extends BlockDisplayVariant implements PluginWizardIn
 
     if ($form_state->hasValue('builder')) {
       $this->configuration['builder'] = $form_state->getValue('builder');
+    }
+    if ($form_state->hasValue('body_classes_to_add')) {
+      $this->configuration['body_classes_to_add'] = $form_state->getValue('body_classes_to_add');
     }
     $this->configuration['page_title'] = $form_state->getValue('page_title');
   }
