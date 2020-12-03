@@ -38,3 +38,49 @@ section.block-field-blocknodeoverviewfield-overview-pdf {
 section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-related-documents {
   padding-bottom: 10px;
 }
+
+.moderation-dashboard {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+}
+
+.moderation-dashboard h2 {
+  font-size: 1.2em;
+}
+
+.moderation-dashboard > h1 {
+  background-color: #f7f7f9;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  margin: 0;
+  font-weight: normal;
+  text-align: left;
+  font-size: 1em !important;
+}
+
+.moderation-dashboard nav ul {
+  background: rgba(0, 0, 0, 0.05);
+  margin-bottom: -.75rem;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  margin-top: 10px;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.moderation-dashboard nav li {
+  margin-right: 1rem;
+}
+
+.moderation-dashboard .views-row,
+.moderation-dashboard-add-links li {
+  padding: 10px 0 10px 0;
+}
+
+.moderation-dashboard .views-row:not(:last-child),
+.moderation-dashboard-add-links li:not(:last-child) {
+  border-bottom: 1px solid #d4d4d4;
+}
+
