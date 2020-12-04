@@ -335,7 +335,7 @@ class WebformContentCreatorEntity extends ConfigEntityBase implements WebformCon
       return $content;
     }
     if ($attributes[$fieldId][WebformContentCreatorInterface::CUSTOM_CHECK]) {
-      $decValue = WebformContentCreatorUtilities::getDecryptedTokenValue($mapping[WebformContentCreatorInterface::CUSTOM_VALUE], $encryptionProfile, $webform_submission);
+      $decValue = WebformContentCreatorUtilities::getDecryptedTokenValue($mapping[WebformContentCreatorInterface::CUSTOM_VALUE], $encryptionProfile, $webform_submission, $this->get(WebformContentCreatorInterface::ELEMENTS));
       if ($decValue === 'true' || $decValue === 'TRUE') {
         $decValue = TRUE;
       }
@@ -396,7 +396,7 @@ class WebformContentCreatorEntity extends ConfigEntityBase implements WebformCon
     $encryptionProfile = $this->getProfileName();
 
     // Decrypt title.
-    $decryptedTitle = WebformContentCreatorUtilities::getDecryptedTokenValue($nodeTitle, $encryptionProfile, $webform_submission);
+    $decryptedTitle = WebformContentCreatorUtilities::getDecryptedTokenValue($nodeTitle, $encryptionProfile, $webform_submission, $this->get(WebformContentCreatorInterface::ELEMENTS));
 
     // Decode HTML entities, returning them to their original UTF-8 characters.
     $decodedTitle = Html::decodeEntities($decryptedTitle);
@@ -477,7 +477,7 @@ class WebformContentCreatorEntity extends ConfigEntityBase implements WebformCon
     $encryptionProfile = $this->getProfileName();
 
     // Decrypt title.
-    $decryptedTitle = WebformContentCreatorUtilities::getDecryptedTokenValue($nodeTitle, $encryptionProfile, $webform_submission);
+    $decryptedTitle = WebformContentCreatorUtilities::getDecryptedTokenValue($nodeTitle, $encryptionProfile, $webform_submission, $this->get(WebformContentCreatorInterface::ELEMENTS));
 
     // Decode HTML entities, returning them to their original UTF-8 characters.
     $decodedTitle = Html::decodeEntities($decryptedTitle);

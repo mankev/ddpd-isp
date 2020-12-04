@@ -120,9 +120,13 @@
                 "3183425 - Claro has artifacts in chrome":
                 "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch"
             },
+            "drupal/webform_content_creator": {
+                "3186559 - Add support for an unmapped fields token":
+                "https://www.drupal.org/files/issues/2020-12-04/webform_cc-unmapped_values_token-3186559-2.patch"
+            },
             "drupal/panels": {
-                "3186390 - Add default class and ability to configure additional classes to variants":
-            "https://www.drupal.org/files/issues/2020-12-03/panels-add_classes_variant-3186390-2.patch"
+                "2849867 - Custom attributes in panels blocks and variants":
+                "https://www.drupal.org/files/issues/2020-04-30/panels_custom_attributes_in_panels_blocks-2849867-78.patch"
             }
         },
         "patches-ignore": {

@@ -3,6 +3,7 @@
 namespace Drupal\panels_ipe\Form;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormState;
@@ -12,6 +13,7 @@ use Drupal\Core\Plugin\ContextAwarePluginAssignmentTrait;
 use Drupal\Core\Plugin\ContextAwarePluginInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\panels\Form\PanelsStyleTrait;
 use Drupal\panels\Plugin\DisplayVariant\PanelsDisplayVariant;
 use Drupal\panels_ipe\PanelsIPEBlockRendererTrait;
 use Drupal\Core\TempStore\SharedTempStoreFactory;
@@ -28,6 +30,7 @@ class PanelsIPEBlockPluginForm extends FormBase {
   use ContextAwarePluginAssignmentTrait;
 
   use PanelsIPEBlockRendererTrait;
+  use PanelsStyleTrait;
 
   /**
    * @var \Drupal\Component\Plugin\PluginManagerInterface $blockManager
@@ -184,6 +187,7 @@ class PanelsIPEBlockPluginForm extends FormBase {
       '#required' => TRUE,
       '#default_value' => $region,
     ];
+    $form['flipper']['front']['settings'] += $this->getCssStyleForm($block_config, TRUE);
 
     // Add an add button, which is only used by our App.
     $form['submit'] = [
@@ -277,6 +281,21 @@ class PanelsIPEBlockPluginForm extends FormBase {
     // Set the block region appropriately.
     $block_config = $block_instance->getConfiguration();
     $block_config['region'] = $form_state->getValue(array('settings', 'region'));
+    $block_config['css_classes'] = preg_split('/\s+/', trim($form_state->getValue([
+      'settings',
+      'style_settings',
+      'css_classes',
+    ])));
+    $block_config['html_id'] = $form_state->getValue([
+      'settings',
+      'style_settings',
+      'html_id'
+    ]);
+    $block_config['css_styles'] = $form_state->getValue([
+      'settings',
+      'style_settings',
+      'css_styles',
+    ]);
 
     // Determine if we need to update or add this block.
     if ($uuid = $form_state->getValue('uuid')) {
@@ -298,6 +317,19 @@ class PanelsIPEBlockPluginForm extends FormBase {
 
     // Add our data attribute for the Backbone app.
     $build['#attributes']['data-block-id'] = $uuid;
+
+    // Add CSS classes.
+    foreach ($block_config['css_classes'] as $class) {
+      $build['#attributes']['class'][] = Html::cleanCssIdentifier($class);
+    }
+    // Add HTML Id.
+    if (!empty($block_config['html_id'])) {
+      $build['#attributes']['id'] = Html::getId($block_config['html_id']);
+    }
+    // Add CSS styles.
+    if (!empty($block_config['css_styles'])) {
+      $build['#attributes']['style'] = $block_config['css_styles'];
+    }
 
     $plugin_definition = $block_instance->getPluginDefinition();
 
@@ -344,6 +376,30 @@ class PanelsIPEBlockPluginForm extends FormBase {
 
     // Gather a render array for the block.
     $build = $this->buildBlockInstance($block_instance, $this->panelsDisplay);
+
+    // Add CSS classes.
+    $css_classes = preg_split('/\s+/', trim($form_state->getValue([
+      'settings',
+      'style_settings',
+      'css_classes',
+    ])));
+    foreach ($css_classes as $class) {
+      $build['#attributes']['class'][] = Html::cleanCssIdentifier($class);
+    }
+    // Add HTML Id.
+    $html_id = $form_state->getValue(['settings', 'style_settings', 'html_id']);
+    if (!empty($html_id)) {
+      $build['#attributes']['id'] = Html::getId($html_id);
+    }
+    // Add CSS styles.
+    $css_styles = $form_state->getValue([
+      'settings',
+      'style_settings',
+      'css_styles',
+    ]);
+    if (!empty($css_styles)) {
+      $build['#attributes']['style'] = $css_styles;
+    }
 
     // Replace any nested form tags from the render array.
     $build['content']['#post_render'][] = function ($html, array $elements) {
