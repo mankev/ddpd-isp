@@ -123,6 +123,10 @@
                 "3183425 - Claro has artifacts in chrome":
                 "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch"
             },
+            "drupal/formblock": {
+                 "3090910 - Feature: Node edit form block":
+                 "https://www.drupal.org/files/issues/2020-10-16/3090910-node-edit-form.patch"
+            },
             "drupal/webform_content_creator": {
                 "3186559 - Add support for an unmapped fields token":
                 "https://www.drupal.org/files/issues/2020-12-04/webform_cc-unmapped_values_token-3186559-2.patch"
