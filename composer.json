@@ -35,8 +35,7 @@
         "drupal/views_argument_token": "^1.0@beta",
         "drupal/tac_lite": "^1.5",
         "drupal/flood_unblock": "^3.1",
-        "drupal/wysiwyg_linebreaks": "^1.10",
-        "drupal/route_specific_breadcrumb": "^1.0"
+        "drupal/wysiwyg_linebreaks": "^1.10"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
