@@ -35,7 +35,7 @@ class CreateTsEntryForm extends FormBase {
 
     $form['add_tsentry'] = [ 
       '#type' => 'details',
-      '#title' => t('Log time'),
+      '#title' => '<i class="fa fa-clock-o" aria-hidden="true"></i> ' . t('Log time'),
       //'#open' => TRUE,
     ];
 

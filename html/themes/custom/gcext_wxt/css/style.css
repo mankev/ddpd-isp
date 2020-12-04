@@ -92,3 +92,12 @@ table tr.urgent {
 table tr.high {
   border-left: 7px solid rgba(255, 255, 0);
 }
+
+#edit-add-tsentry--2 > div.panel-heading > a {
+  color: #484848;
+  text-decoration: none;
+}
+
+.h2, h2 {
+  margin-top: 10px; !important
+}
