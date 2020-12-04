@@ -33,37 +33,36 @@ class CreateTsEntryForm extends FormBase {
 
     // @TODO add team?
 
-    $form['add_tsentry'] = array(
+    $form['add_tsentry'] = [ 
       '#type' => 'details',
       '#title' => t('Log time'),
       //'#open' => TRUE,
-    );
+    ];
 
-    $form['add_tsentry']['summary'] = array(
+    $form['add_tsentry']['summary'] = [ 
       '#type' => 'textarea',
       '#title' => t('Activity summary'),
       '#rows' => 3,
       '#required' => TRUE,
     ];
 
-    $form['add_tsentry']['hours'] = array(
+    $form['add_tsentry']['hours'] = [ 
       '#type' => 'textfield',
       '#title' => t('Hours'),
       '#size' => 5,
       '#maxlength' => 5,
       '#number_type' => 'decimal',
       '#field_name' => 'add_tsentry',
-      '#element_validate' => array ('number_field_widget_validate'),
       '#input' => TRUE,
       '#required' => TRUE,
     ];
   
     $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = array(
+    $form['actions']['submit'] = [ 
       '#type' => 'submit',
       '#value' => $this->t('Save'),
       '#button_type' => 'primary',
-    }
+    ];
 
     return $form;
   }
