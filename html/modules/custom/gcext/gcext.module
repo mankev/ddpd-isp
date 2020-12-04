@@ -62,8 +62,10 @@ function _gcext_menu_process_submenu(&$submenu, $current_path) {
 function gcext_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   switch ($form_id) {
     case 'node_case_case_information_form':
-      $form['revision_log']['#access'] = FALSE;
+      $form['meta']['#access'] = FALSE;
+      $form['revision_information']['#access'] = FALSE;
       $form['advanced']['#access'] = FALSE;
+      gcext_add_cancel($form);
       break;
     case 'custom_search_block_form':
       /*
@@ -75,8 +77,23 @@ function gcext_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_sta
       //$form['actions']['submit']['#submit'][] = 'gcext_search_submit';
     break;
   }
-
 }
+
+function gcext_add_cancel(&$form) {
+  $form['actions']['submit_cancel'] = array (
+    '#type' => 'submit',
+    '#weight' => 999,
+    '#value' => t('Cancel'),
+    '#submit' => array('gcext_cancel_callback'),
+    '#limit_validation_errors' => [],
+  );
+}
+
+function gcext_cancel_callback(array &$form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $form_state->setRedirect('entity.node.canonical', array('node' => $node->id()));
+}
+
 
 function gcext_menu_local_tasks_alter(&$data, $route_name) {
   $user = \Drupal::currentUser();
