@@ -36,7 +36,9 @@
         "drupal/tac_lite": "^1.5",
         "drupal/flood_unblock": "^3.1",
         "drupal/wysiwyg_linebreaks": "^1.10",
-        "drupal/formblock": "^2.0@beta"
+        "drupal/formblock": "^2.0@beta",
+        "drupal/layout_builder_styles": "^1.0@beta",
+        "drupal/layout_builder_component_attributes": "^1.1"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
