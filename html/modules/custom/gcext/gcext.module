@@ -61,6 +61,10 @@ function _gcext_menu_process_submenu(&$submenu, $current_path) {
 
 function gcext_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   switch ($form_id) {
+    case 'node_case_case_information_form':
+      $form['revision_log']['#access'] = FALSE;
+      $form['advanced']['#access'] = FALSE;
+      break;
     case 'custom_search_block_form':
       /*
       $form['actions']['submit']['#id'] = 'wb-srch-sub';
