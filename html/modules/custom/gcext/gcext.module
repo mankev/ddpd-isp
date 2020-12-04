@@ -106,21 +106,20 @@ function gcext_menu_local_tasks_alter(&$data, $route_name) {
 }
 
 function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
-/*
   if (!empty($breadcrumb) && !\Drupal::service('router.admin_context')->isAdminRoute() && 'layout_builder.defaults.node.view' != $route_match->getRouteName()) {
     $links = $breadcrumb->getLinks();
     array_shift($links);
 
     // prepend links
     $new_links = [];
-    $title = 'Canada.ca';
+    $title = 'Infozone';
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $url = Url::fromUri('https://www.canada.ca/' . $lang . '.html');
     $new_links[] = Link::fromTextAndUrl(t($title), $url);
     if (!\Drupal::service('path.matcher')->isFrontPage()) {
-      $new_links[] = Link::fromTextAndUrl(t('Canada Revenue Agency'), Url::fromRoute('<front>'));
+      $new_links[] = Link::fromTextAndUrl(t('Dashboard'), Url::fromRoute('<front>'));
     }
-
+/*
     // remove search from breadcrumb
     if ($route_match->getRouteName() == 'view.site_search.page_1') {
       $links = [];
@@ -129,7 +128,7 @@ function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterf
     // create new breadcrumb if node flagged for it
     $node = $route_match->getParameter('node');
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    if ($node && $node->hasfield('field_autobc')) {
+    if ($node instanceof \Drupal\Node\Nodeinterface && $node->hasfield('field_autobc')) {
       $links = [];
       $autobc = $node->get('field_autobc')->getValue();
       if ($autobc && $autobc[0]['value'] == 1 && !$node->get('field_site_ia')->isEmpty()) {
@@ -155,13 +154,13 @@ function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterf
         }
       }
     }
+*/
 
 
     $breadcrumb = new Breadcrumb();
     $breadcrumb->setLinks(array_merge($new_links, $links));
     $breadcrumb->addCacheContexts(['route']);
   }
-*/
 }
 
 /**
