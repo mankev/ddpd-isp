@@ -57,8 +57,8 @@ class CreateTsEntryForm extends FormBase {
       '#required' => TRUE,
     ];
   
-    $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = [ 
+    $form['add_tsentry']['actions']['#type'] = 'actions';
+    $form['add_tsentry']['actions']['submit'] = [ 
       '#type' => 'submit',
       '#value' => $this->t('Save'),
       '#button_type' => 'primary',
