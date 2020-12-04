@@ -121,7 +121,9 @@
         "patches": {
             "drupal/core": {
                 "3183425 - Claro has artifacts in chrome":
-                "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch"
+                "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch",
+                "3045171 - Layout buider cannot save with embedded form":
+                "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch"
             },
             "drupal/formblock": {
                  "3090910 - Feature: Node edit form block":
