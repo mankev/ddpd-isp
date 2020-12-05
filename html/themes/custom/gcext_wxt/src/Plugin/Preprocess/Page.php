@@ -29,7 +29,7 @@ class Page extends BootstrapPage {
     $variables['language_prefix'] = $language_prefix[$language];
     $variables['library_path'] = $library_path;
 
-    if (\Drupal::service('path.matcher')->isFrontPage()) {
+    if (\Drupal::service('path.matcher')->isFrontPage() || \Drupal::routeMatch()->getRouteName() == 'entity.user.canonical') {
        $variables['wxt_homepage'] = TRUE;
     }
 

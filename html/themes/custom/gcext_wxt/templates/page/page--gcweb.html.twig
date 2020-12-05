@@ -95,7 +95,7 @@
 {# Main #}
 {% block main %}
 
-  <div class="{{ ((is_front and wxt_homepage) or fluid_page) ? "container-fluid" : container }}">
+  <div class="{{ ((wxt_homepage) or fluid_page) ? "container-fluid" : container }}">
     <div class="row">
 
 {% if fluid_page %}

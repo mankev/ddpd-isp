@@ -101,3 +101,10 @@ table tr.high {
 .h2, h2 {
   margin-top: 10px; !important
 }
+
+.container-fluid {
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
