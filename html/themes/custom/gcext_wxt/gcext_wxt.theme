@@ -93,3 +93,9 @@ function gcext_wxt_preprocess_entity_embed_container(&$variables) {
     }
   }
 }
+
+function gcext_wxt_preprocess_comment(&$variables) { 
+  $comment = $variables['elements']['#comment']; 
+  $variables['author'] = $comment->getAuthorName();
+  $variables['created'] = \Drupal::service('date.formatter')->format($comment->getCreatedTime(), 'short');
+}

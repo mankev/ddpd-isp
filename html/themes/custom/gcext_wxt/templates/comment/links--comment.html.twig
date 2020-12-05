@@ -55,7 +55,8 @@
       {% endif %}
       <li{{ item.attributes.addClass(key|clean_class).addClass(lang_curr) }}>
         {%- if item.link -%}
-          {{ item.link }}
+          {%- set action_link = item.link|merge({ '#attributes': { 'class': [ 'btn', 'btn-default' ] } }) -%}
+          {{ action_link }}
         {%- elseif item.text_attributes -%}
           <span{{ item.text_attributes }}>{{ item.text }}</span>
         {%- else -%}

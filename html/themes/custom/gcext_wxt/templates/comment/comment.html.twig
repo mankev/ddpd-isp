@@ -89,11 +89,10 @@
   <div{{ content_attributes.addClass('panel', 'panel-default') }}>
     {% if title %}
       {{ title_prefix }}
-      <h3{{ title_attributes.addClass('panel-heading', 'mrgn-tp-0') }}>{{ title }}</h3>
+      <h2{{ title_attributes.addClass('panel-heading','mrgn-tp-0', 'h5') }}>{{ author }} commented on {{ created }}</h2>
       {{ title_suffix }}
     {% endif %}
     <div class="panel-body">
-      <p>{{ submitted }}</p>
       {{ content }}
     </div>
   </div>
