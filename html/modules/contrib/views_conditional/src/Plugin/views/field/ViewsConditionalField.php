@@ -229,15 +229,15 @@ class ViewsConditionalField extends FieldPluginBase implements ContainerFactoryP
       // If we find a replacement variable, replace it.
       if (strpos($equalto, "{{ $key }}") !== FALSE) {
         $field = $this->cleanVar($fields[$key]);
-        $equalto = $this->t(str_replace("{{ $key }}", $field, $equalto));
+        $equalto = str_replace("{{ $key }}", $field, $equalto);
       }
       if (strpos($then, "{{ $key }}") !== FALSE) {
         $field = $this->cleanVar($fields[$key]);
-        $then = $this->t(str_replace("{{ $key }}", $field, $then));
+        $then = str_replace("{{ $key }}", $field, $then);
       }
       if (strpos($or, "{{ $key }}") !== FALSE) {
         $field = $this->cleanVar($fields[$key]);
-        $or = $this->t(str_replace("{{ $key }}", $field, $or));
+        $or = str_replace("{{ $key }}", $field, $or);
       }
     }
 
@@ -273,120 +273,192 @@ class ViewsConditionalField extends FieldPluginBase implements ContainerFactoryP
       // Equal to.
       case 1:
         if ($r == $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Not equal to.
       case 2:
         if ($r !== $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Greater than.
       case 3:
         if ($r > $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Less than.
       case 4:
         if ($r < $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Empty.
       case 5:
         if (empty($r)) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Not empty.
       case 6:
         if (!empty($r)) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Contains.
       case 7:
         if (mb_stripos($r, $equalto) !== FALSE) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Does NOT contain.
       case 8:
         if (mb_stripos($r, $equalto) === FALSE) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Length Equal to.
       case 9:
         if (mb_strlen($r) == $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Length Not equal to.
       case 10:
         if (mb_strlen($r) !== $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Length Greater than.
       case 11:
         if (mb_strlen($r) > $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
 
       // Length Less than.
       case 12:
         if (mb_strlen($r) < $equalto) {
-          return $then;
+          $then = array(
+            '#markup' => $then,
+          );
+          return \Drupal::service('renderer')->render($then);
         }
         else {
-          return $or;
+          $or = array(
+            '#markup' => $or,
+          );
+          return \Drupal::service('renderer')->render($or);
         }
         break;
     }

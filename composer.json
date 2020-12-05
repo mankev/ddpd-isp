@@ -138,6 +138,10 @@
             "drupal/panels": {
                 "2849867 - Custom attributes in panels blocks and variants":
                 "https://www.drupal.org/files/issues/2020-04-30/panels_custom_attributes_in_panels_blocks-2849867-78.patch"
+            },
+            "drupal/views_conditional": {
+                "3053293 - html in output rendered as plain text":
+                "https://www.drupal.org/files/issues/2020-10-28/3053293-html-17.patch"
             }
         },
         "patches-ignore": {
