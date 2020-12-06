@@ -107,3 +107,10 @@ function gcext_wxt_preprocess_comment(&$variables) {
   $variables['author'] = $comment->getAuthorName();
   $variables['created'] = \Drupal::service('date.formatter')->format($comment->getCreatedTime(), 'short');
 }
+
+function gcext_wxt_form_alter(&$form, &$form_state, $form_id) {  
+
+  if ($form_id=='views_exposed_form') { 
+    $form['#attributes']['class'][] = 'well';        
+  }
+}
