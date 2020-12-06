@@ -12,6 +12,30 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Datetime\DrupalDateTime;
 
+function gcext_menu_local_tasks_alter(&$data, $route_name) {
+  $routes = [
+    'entity.node.canonical',
+    'page_manager.page_view_time_log_time_log-panels_variant-0',
+    'entity.node.version_history',
+    'entity.node.workflow_history',
+  ];
+
+  //dpm($data['tabs']);
+  if (in_array($route_name, $routes)) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      if ($node->bundle() == 'case') {
+        unset($data['tabs'][0]['entity.node.edit_form']);
+        unset($data['tabs'][0]['entity.node.delete_form']);
+        //unset($data['tabs'][0]['entity.node.version_history']);
+        unset($data['tabs'][0]['views_view:view.moderation_history.page']);
+        //unset($data['tabs'][0]['entity_clone.clone:node.clone_tab']);
+      }
+    }
+    $data['tabs'][0]['entity.node.canonical']['#link']['title'] = t('Case information');
+  }
+}
+
 function gcext_moderation_sidebar_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->getEntityTypeId() == 'node') {
     $option = [
@@ -95,8 +119,8 @@ function gcext_cancel_callback(array &$form, \Drupal\Core\Form\FormStateInterfac
 }
 
 
-function gcext_menu_local_tasks_alter(&$data, $route_name) {
-  $user = \Drupal::currentUser();
+//function gcext_menu_local_tasks_alter(&$data, $route_name) {
+//  $user = \Drupal::currentUser();
 /*
   $routes = [
     'entity.node.canonical',
@@ -124,7 +148,7 @@ function gcext_menu_local_tasks_alter(&$data, $route_name) {
     $data['tabs'][0]['convert_bundles.entities:entity.node.convert_bundles']['#link']['title'] = t('Convert');
   }
 */
-}
+//}
 
 function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
   if (!empty($breadcrumb) && !\Drupal::service('router.admin_context')->isAdminRoute() && 'layout_builder.defaults.node.view' != $route_match->getRouteName()) {

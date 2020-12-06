@@ -1,0 +1,3 @@
+gcext.local_tasks:
+  deriver: 'Drupal\gcext\Plugin\Derivative\DynamicLocalTasks'
+  weight: 100
