@@ -73,6 +73,11 @@ section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-re
   margin-right: 1rem;
 }
 
+.moderation-dashboard .services-row,
+.moderation-dashboard-add-links li {
+  padding: 10px 0 10px 0;
+}
+
 .moderation-dashboard .views-row,
 .moderation-dashboard-add-links li {
   padding: 10px 0 10px 0;
