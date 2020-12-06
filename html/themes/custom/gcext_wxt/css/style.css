@@ -40,7 +40,6 @@ section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-re
 }
 
 .moderation-dashboard {
-  border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
   margin-bottom: 1rem;
 }
@@ -103,8 +102,8 @@ table tr.high {
 }
 
 .container-fluid {
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 100px;
+    padding-left: 100px;
     margin-right: auto;
     margin-left: auto;
 }
