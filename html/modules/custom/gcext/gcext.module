@@ -32,7 +32,7 @@ function gcext_menu_local_tasks_alter(&$data, $route_name) {
         //unset($data['tabs'][0]['entity_clone.clone:node.clone_tab']);
       }
     }
-    $data['tabs'][0]['entity.node.canonical']['#link']['title'] = t('Case information');
+    $data['tabs'][0]['entity.node.canonical']['#link']['title'] = t('Case details');
   }
 }
 
