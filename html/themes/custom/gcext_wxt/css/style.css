@@ -112,3 +112,10 @@ table tr.high {
     margin-right: auto;
     margin-left: auto;
 }
+
+#wb-cont-nav {
+    color: #555;
+    font-size: 26px;
+    font-weight: 200;
+    margin-bottom: -25px;
+}

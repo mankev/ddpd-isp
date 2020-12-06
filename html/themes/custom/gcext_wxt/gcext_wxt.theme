@@ -35,6 +35,7 @@ function gcext_wxt_preprocess_page_title(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node instanceof \Drupal\node\NodeInterface) {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    // book title
     if (isset($node->book) && !empty($node->book) && $node->book['bid'] != $node->id()) {
       $book =  \Drupal::entityTypeManager()->getStorage('node')->load($node->book['bid']);
       if ($book) {
@@ -44,7 +45,14 @@ function gcext_wxt_preprocess_page_title(&$variables) {
         $variables['book_title'] = $book->getTitle();
       }
     }
+
+    if ($node->getType() == 'case') {
+      if ($node->hasField('field_case_type') && !$node->get('field_case_type')->isEmpty()) {
+        $variables['case_type'] = $node->get('field_case_type')->entity->getName();
+      } 
+    }
   }
+
 }
 
 function gcext_wxt_preprocess_region(&$variables) {

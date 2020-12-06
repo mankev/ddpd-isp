@@ -21,6 +21,10 @@
   <div class="h3" id="wb-cont-nav">{{ book_title }}</div>
 {% endif %}
 
+{% if case_type  %}
+  <div class="h3" id="wb-cont-nav">{{ case_type }}</div>
+{% endif %}
+
 {% if title %}
   <h1{{ title_attributes }} id="wb-cont">{{ title }}</h1>
 {% endif %}
