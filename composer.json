@@ -40,7 +40,8 @@
         "drupal/layout_builder_styles": "^1.0@beta",
         "drupal/layout_builder_component_attributes": "^1.1",
         "drupal/views_conditional": "^1.2",
-        "drupal/conditional_fields": "^1.0@alpha"
+        "drupal/conditional_fields": "^1.0@alpha",
+        "drupal/field_permissions": "^1.1"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
