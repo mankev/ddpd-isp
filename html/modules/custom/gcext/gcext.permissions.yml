@@ -1,0 +1,14 @@
+crate time log:
+  description: 'Log time entries on a case'
+  title: 'Log case time'
+  restrict access: TRUE
+
+view time logs:
+  description: 'View all time entries on a case'
+  title: 'View time logs'
+  restrict access: TRUE
+
+view own time logs:
+  description: 'View own time entries on a case'
+  title: 'View own time logs'
+  restrict access: TRUE

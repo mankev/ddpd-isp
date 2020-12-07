@@ -23,6 +23,11 @@ class CreateTsEntryBlock extends BlockBase {
    */
   public function build() {
 
+    $currentUser = \Drupal::currentUser();
+    if (!$currentUser->hasPermission('create time log')) {
+      return [];
+    }
+
     $node = $this->getContextValue('node');
     $form = \Drupal::formBuilder()->getForm('\Drupal\gcext\Form\CreateTsEntryForm', array('node' => $node));
 
