@@ -202,7 +202,8 @@ class NodeEditFormBlock extends BlockBase implements ContainerFactoryPluginInter
     // NodeAccessControlHandler::createAccess() adds user.permissions
     // as a cache context to the returned AccessResult.
     /* @var $result \Drupal\Core\Access\AccessResult */
-    $result = $access_control_handler->createAccess($this->configuration['type'], $account, [], TRUE);
+    $node = $this->getContextValue('node');
+    $result = $access_control_handler->access($node, 'update',  $account, TRUE);
 
     // Add the node type as a cache dependency.
     $node_type = $node_type = NodeType::load($this->configuration['type']);

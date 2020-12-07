@@ -130,7 +130,7 @@
             },
             "drupal/formblock": {
                  "3090910 - Feature: Node edit form block":
-                 "https://www.drupal.org/files/issues/2020-10-16/3090910-node-edit-form.patch"
+                 "https://www.drupal.org/files/issues/2020-12-07/formblock-node_edit_form-3090910-5.patch"
             },
             "drupal/webform_content_creator": {
                 "3186559 - Add support for an unmapped fields token":
