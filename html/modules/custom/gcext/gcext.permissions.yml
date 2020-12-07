@@ -1,4 +1,4 @@
-crate time log:
+create time log:
   description: 'Log time entries on a case'
   title: 'Log case time'
   restrict access: TRUE
