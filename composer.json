@@ -42,7 +42,8 @@
         "drupal/views_conditional": "^1.2",
         "drupal/conditional_fields": "^1.0@alpha",
         "drupal/field_permissions": "^1.1",
-        "drupal/config_delete": "^1.17"
+        "drupal/config_delete": "^1.17",
+        "drupal/facets": "^1.6"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
