@@ -154,6 +154,11 @@ function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterf
     $links = $breadcrumb->getLinks();
     array_shift($links);
 
+    // remove /node from breadcrumb
+    if ($route_match->getRouteName() == 'page_manager.page_view_case_information_edit_case_information_edit-panels_variant-0') {
+      array_shift($links);
+    }
+
     // prepend links
     $new_links = [];
     $title = 'Infozone';
