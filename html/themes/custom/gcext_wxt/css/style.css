@@ -138,3 +138,8 @@ ul.js-facets-widget {
   padding-left: 5px;
 }
 
+.select-wrapper {
+  display: inline-block;
+  position: relative;
+  width: auto;
+}
