@@ -20,7 +20,6 @@ function gcext_menu_local_tasks_alter(&$data, $route_name) {
     'entity.node.workflow_history',
   ];
 
-  //dpm($data['tabs']);
   if (in_array($route_name, $routes)) {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof \Drupal\node\NodeInterface) {

@@ -12,10 +12,10 @@ gcext_settings.admin_config_gcext:
     _form: '\Drupal\gcext\Form\GcextSettingsForm'
   requirements:
     _permission: 'administer site configuration'
-node.time_tab:
+gcext.time_tab:
   path: '/node/{node}/time'
   defaults:
-    _entity_form: 'node.time_tab'
+    _entity_form: 'gcext.time_tab'
   requirements:
     _custom_access: '\Drupal\gcext\Controller\CheckCaseAccess::checkAccess'
     _entity_access: 'node.view'

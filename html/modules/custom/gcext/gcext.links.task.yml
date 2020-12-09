@@ -1,3 +1,8 @@
 gcext.local_tasks:
   deriver: 'Drupal\gcext\Plugin\Derivative\DynamicLocalTasks'
   weight: 100
+
+gcext.time_tab:
+  route_name: gcext.time_tab
+  parent_id: entity.node.canonical
+  title: 'Time log'
