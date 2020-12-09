@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Template\TwigEnvironment;
 use Drupal\Core\Theme\Registry;
+use Drupal\Core\Site\Settings;
 
 /**
  * Class ToolbarController.
@@ -290,6 +291,12 @@ class ToolbarController extends ControllerBase {
     $this->themeRegistry->reset();
     $this->messenger()->addMessage($this->t('Theme registry rebuilded.'));
     return new RedirectResponse($this->reloadPage());
+  }
+
+  public function runDatabaseUpdates() {
+    if (Settings::get('allow_authorize_operations', TRUE) && \Drupal::currentUser()->hasPermission('administer software updates')) {
+      return new RedirectResponse('update.php');
+    }
   }
 
 }

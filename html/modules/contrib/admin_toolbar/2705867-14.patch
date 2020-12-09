@@ -1,0 +1,53 @@
+diff --git a/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml b/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
+index e39dbe940..63a76f5c4 100644
+--- a/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
++++ b/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
+@@ -21,7 +21,7 @@ system.run_cron:
+ 
+ system.db_update:
+   title: 'Run updates'
+-  route_name: system.db_update
++  route_name: admin_toolbar.run.database.updates
+   menu_name: admin
+   parent: admin_toolbar_tools.help
+   weight: -6
+diff --git a/admin_toolbar_tools/admin_toolbar_tools.routing.yml b/admin_toolbar_tools/admin_toolbar_tools.routing.yml
+index dc081c860..728ec9236 100644
+--- a/admin_toolbar_tools/admin_toolbar_tools.routing.yml
++++ b/admin_toolbar_tools/admin_toolbar_tools.routing.yml
+@@ -78,3 +78,12 @@ admin_toolbar.run.cron:
+   requirements:
+     _permission: 'administer site configuration'
+     _csrf_token: 'TRUE'
++
++admin_toolbar.run.database.updates:
++  path: '/update.php'
++  defaults:
++    _controller: '\Drupal\admin_toolbar_tools\Controller\ToolbarController::runDatabaseUpdates'
++    _title: 'Run Database Updates'
++  requirements:
++    _permission: 'administer software updates'
++    _csrf_token: 'TRUE'
+diff --git a/admin_toolbar_tools/src/Controller/ToolbarController.php b/admin_toolbar_tools/src/Controller/ToolbarController.php
+index 5ba57106c..dca31894c 100644
+--- a/admin_toolbar_tools/src/Controller/ToolbarController.php
++++ b/admin_toolbar_tools/src/Controller/ToolbarController.php
+@@ -16,6 +16,7 @@
+ use Symfony\Component\HttpFoundation\RequestStack;
+ use Drupal\Core\PhpStorage\PhpStorageFactory;
+ use Drupal\Core\Template\TwigEnvironment;
++use Drupal\Core\Site\Settings;
+ 
+ /**
+  * Class ToolbarController.
+@@ -269,4 +270,10 @@ public function cacheRender() {
+     return new RedirectResponse($this->reloadPage());
+   }
+ 
++  public function runDatabaseUpdates() {
++    if (Settings::get('allow_authorize_operations', TRUE) && \Drupal::currentUser()->hasPermission('administer software updates')) {
++      return new RedirectResponse('update.php');
++    }
++  }
++
+ }

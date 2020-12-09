@@ -1,0 +1,53 @@
+diff --git a/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml b/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
+index 670a4f76..96e2e733 100755
+--- a/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
++++ b/admin_toolbar_tools/admin_toolbar_tools.links.menu.yml
+@@ -21,7 +21,7 @@ system.run_cron:
+ 
+ system.db_update:
+   title: 'Run updates'
+-  route_name: system.db_update
++  route_name: admin_toolbar.run.database.updates
+   menu_name: admin
+   parent: admin_toolbar_tools.help
+   weight: -6
+diff --git a/admin_toolbar_tools/admin_toolbar_tools.routing.yml b/admin_toolbar_tools/admin_toolbar_tools.routing.yml
+index bcae9db1..ab400204 100755
+--- a/admin_toolbar_tools/admin_toolbar_tools.routing.yml
++++ b/admin_toolbar_tools/admin_toolbar_tools.routing.yml
+@@ -87,3 +87,12 @@ admin_toolbar.run.cron:
+   requirements:
+     _permission: 'administer site configuration'
+     _csrf_token: 'TRUE'
++
++admin_toolbar.run.database.updates:
++  path: '/update.php'
++  defaults:
++    _controller: '\Drupal\admin_toolbar_tools\Controller\ToolbarController::runDatabaseUpdates'
++    _title: 'Run Database Updates'
++  requirements:
++    _permission: 'administer software updates'
++    _csrf_token: 'TRUE'
+diff --git a/admin_toolbar_tools/src/Controller/ToolbarController.php b/admin_toolbar_tools/src/Controller/ToolbarController.php
+index 22ccded1..4d5775a4 100755
+--- a/admin_toolbar_tools/src/Controller/ToolbarController.php
++++ b/admin_toolbar_tools/src/Controller/ToolbarController.php
+@@ -16,6 +16,7 @@
+ use Symfony\Component\HttpFoundation\RequestStack;
+ use Drupal\Core\Template\TwigEnvironment;
+ use Drupal\Core\Theme\Registry;
++use Drupal\Core\Site\Settings;
+ 
+ /**
+  * Class ToolbarController.
+@@ -292,4 +293,10 @@ public function themeRebuild() {
+     return new RedirectResponse($this->reloadPage());
+   }
+ 
++  public function runDatabaseUpdates() {
++    if (Settings::get('allow_authorize_operations', TRUE) && \Drupal::currentUser()->hasPermission('administer software updates')) {
++      return new RedirectResponse('update.php');
++    }
++  }
++
+ }
