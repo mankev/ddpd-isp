@@ -139,6 +139,10 @@
                 "3186559 - Add support for an unmapped fields token":
                 "https://www.drupal.org/files/issues/2020-12-04/webform_cc-unmapped_values_token-3186559-2.patch"
             },
+            "drupal/admin_toolbar": {
+                 "2705867 - Run database updates in menu for users without 'Administer software updates' permission":
+                 "https://www.drupal.org/files/issues/2019-12-05/2705867-16.patch"
+            },
             "drupal/panels": {
                 "2849867 - Custom attributes in panels blocks and variants":
                 "https://www.drupal.org/files/issues/2020-04-30/panels_custom_attributes_in_panels_blocks-2849867-78.patch"
