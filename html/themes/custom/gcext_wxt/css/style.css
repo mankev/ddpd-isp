@@ -143,3 +143,9 @@ ul.js-facets-widget {
   position: relative;
   width: auto;
 }
+
+.case-type {
+  color: #555;
+  font-size: 12px;
+  font-weight: 200;
+}
