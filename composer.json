@@ -45,7 +45,8 @@
         "drupal/config_delete": "^1.17",
         "drupal/facets": "^1.6",
         "drupal/views_aggregator": "^1.0@beta",
-        "drupal/progress_bar": "^1.1"
+        "drupal/progress_bar": "^1.1",
+        "drupal/webform_analysis": "^1.0@beta"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
