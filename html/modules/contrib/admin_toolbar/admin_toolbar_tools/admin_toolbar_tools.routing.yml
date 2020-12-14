@@ -87,12 +87,3 @@ admin_toolbar.run.cron:
   requirements:
     _permission: 'administer site configuration'
     _csrf_token: 'TRUE'
-
-admin_toolbar.run.database.updates:
-  path: '/update.php'
-  defaults:
-    _controller: '\Drupal\admin_toolbar_tools\Controller\ToolbarController::runDatabaseUpdates'
-    _title: 'Run Database Updates'
-  requirements:
-    _permission: 'administer software updates'
-    _csrf_token: 'TRUE'

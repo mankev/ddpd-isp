@@ -1,0 +1,10 @@
+name: Progress Bar
+type: module
+description: Modules provide Progress bar field formatter for List field and State field of commerce.
+core: 8.x
+package: Field types
+
+# Information added by Drupal.org packaging script on 2020-05-14
+version: '8.x-1.1'
+project: 'progress_bar'
+datestamp: 1589459534

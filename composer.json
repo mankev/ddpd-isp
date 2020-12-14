@@ -44,7 +44,8 @@
         "drupal/field_permissions": "^1.1",
         "drupal/config_delete": "^1.17",
         "drupal/facets": "^1.6",
-        "drupal/views_aggregator": "^1.0@beta"
+        "drupal/views_aggregator": "^1.0@beta",
+        "drupal/progress_bar": "^1.1"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
@@ -138,10 +139,6 @@
             "drupal/webform_content_creator": {
                 "3186559 - Add support for an unmapped fields token":
                 "https://www.drupal.org/files/issues/2020-12-04/webform_cc-unmapped_values_token-3186559-2.patch"
-            },
-            "drupal/admin_toolbar": {
-                 "2705867 - Run database updates in menu for users without 'Administer software updates' permission":
-                 "https://www.drupal.org/files/issues/2019-12-05/2705867-16.patch"
             },
             "drupal/panels": {
                 "2849867 - Custom attributes in panels blocks and variants":
