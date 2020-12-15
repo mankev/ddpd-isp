@@ -159,6 +159,12 @@ function gcext_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterf
       array_shift($links);
     }
 
+    $node = $route_match->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface && $node->getType() == 'project') {
+      array_shift($links);
+    }
+
+
     // prepend links
     $new_links = [];
     $title = 'Infozone';
