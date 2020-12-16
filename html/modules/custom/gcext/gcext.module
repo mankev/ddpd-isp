@@ -11,6 +11,9 @@ use Drupal\Core\Breadcrumb\Breadcrumb;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\workflow\Entity\Workflow;
+use Drupal\workflow\Entity\WorkflowManager;
+use Drupal\field\Entity\FieldStorageConfig;
 
 function gcext_menu_local_tasks_alter(&$data, $route_name) {
   $routes = [
@@ -117,6 +120,32 @@ function gcext_cancel_callback(array &$form, \Drupal\Core\Form\FormStateInterfac
   $form_state->setRedirect('entity.node.canonical', array('node' => $node->id()));
 }
 
+/**
+ * Implements hook_entity_presave().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   An EntityInterface object.
+ */
+function gcext_entity_presave(EntityInterface $entity) {
+  // this is a workaround for a defect in workflow where the field value is not set to the initial state when not using the workflow widget in the form
+  // related issue: https://www.drupal.org/project/workflow/issues/2724107 but also affects programmatically created nodes
+  if ($entity->isNew() && $entity->bundle() == 'case') {
+    if (WorkflowManager::isWorkflowEntityType($entity->getEntityTypeId())) {
+      return;
+    }
+
+    foreach (workflow_get_workflow_field_names($entity) as $field_name) {
+      $field_info = FieldStorageConfig::loadByName($entity->getEntityTypeId(), $field_name);
+      if ($wid = $field_info->getSetting('workflow_type')) {
+        $user = workflow_current_user();
+        /** @var Workflow $workflow */
+        $workflow = Workflow::load($wid);
+        $new_sid = $workflow->getFirstSid($entity, $field_name, $user);
+        $entity->{$field_name}->setValue($new_sid);
+      }
+    }
+  }
+}
 
 //function gcext_menu_local_tasks_alter(&$data, $route_name) {
 //  $user = \Drupal::currentUser();
