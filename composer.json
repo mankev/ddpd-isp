@@ -46,7 +46,8 @@
         "drupal/facets": "^1.6",
         "drupal/views_aggregator": "^1.0@beta",
         "drupal/progress_bar": "^1.1",
-        "drupal/webform_analysis": "^1.0@beta"
+        "drupal/webform_analysis": "^1.0@beta",
+        "drupal/flag": "^4.0@beta"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8",
