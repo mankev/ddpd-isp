@@ -27,14 +27,10 @@ class ProgressBarFieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    $defaults = [];
-    //$wid = $this->getSetting('workflow');
-    $states = WorkflowState::loadMultiple([], 'case_status');
-
-    ///** @var \Drupal\workflow\Entity\WorkflowState $state */
-    foreach ($states as $key => $state) {
-     $defaults['progress_bar_color_' . $key] = '337ab7';
-    }
+    $defaults = [
+      'progress_bar_color' => [],
+      'exclude_states' => [],
+    ];
 
     return $defaults + parent::defaultSettings();
   }
@@ -45,18 +41,28 @@ class ProgressBarFieldFormatter extends FormatterBase {
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $wid = $this->getSetting('workflow');
     $states = WorkflowState::loadMultiple([], $wid);
+    $colors = $this->getSetting('progress_bar_color');
+    $options = [];
 
     /** @var \Drupal\workflow\Entity\WorkflowState $state */
     foreach ($states as $key => $state) {
       // Creating color field setting.
-      $element['progress_bar_color_' . $key] = [
-        '#title' => t('Color for: ' . $state->label()),
+      $element['progress_bar_color'][$key] = [
+        '#title' => t('Color for ' . $state->label()),
         '#type' => 'textfield',
         '#size' => 6,
-        '#default_value' => $this->getSetting('progress_bar_color_' . $key),
-        '#required' => TRUE,
+        '#default_value' => $colors[$key],
       ];
+  
+      $options[$key] = $state->label();
     }
+
+    $element['exclude_states'] = [
+      '#title' => t('Exclude the following states'),
+      '#type' => 'checkboxes',
+      '#options' => $options,
+      '#default_value' => $this->getSetting('exclude_states'),
+    ];
 
     return $element;
   }
@@ -73,7 +79,11 @@ class ProgressBarFieldFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     $summary = [];
-    $summary[] = t('Color settings');
+    $colors = implode(', ', array_filter($this->getSetting('progress_bar_color')));
+    $summary[] = t('Color settings: @colors', ['@colors' => $colors]);
+
+    $states = implode(', ', array_filter($this->getSetting('exclude_states')));
+    $summary[] = t('Exclude states: @states', ['@states' => $states]);
     return $summary;
   }
 
@@ -83,13 +93,16 @@ class ProgressBarFieldFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     $allowed_values = [];
+    $exclude_states = array_filter($this->getSetting('exclude_states'));
 
     $wid = $this->getSetting('workflow');
     $states = WorkflowState::loadMultiple([], $wid); 
     /** @var \Drupal\workflow\Entity\WorkflowState $state */
     foreach ($states as $key => $state) {
-      // Creating color field setting.
-      $allowed_values[$key] = $state->label();
+      if (!in_array($key, $exclude_states)) {
+        // Creating color field setting.
+        $allowed_values[$key] = $state->label();
+      }
     }
     $list_count = count($allowed_values);
 
@@ -114,6 +127,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
     $loop_count = 0;
     $state_data = array();
     $lowest_percent = (1 / $list_count) * 100;
+    $colors = $this->getSetting('progress_bar_color');
     // Go through all allowed values.
     foreach ($allowed_values as $key => $value) {
       // If loop count is less than search position.
@@ -125,7 +139,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
         $state_data[] = array(
           'state' => $state,
           'name' => $value,
-          'color' => '#' . $this->getSetting('progress_bar_color_' . $key),
+          'color' => '#' . $colors[$key],
           'lowest_percent' => $lowest_percent,
         );
       }
