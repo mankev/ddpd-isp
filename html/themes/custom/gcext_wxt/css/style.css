@@ -149,3 +149,8 @@ ul.js-facets-widget {
   font-size: 12px;
   font-weight: 200;
 }
+
+.btn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
