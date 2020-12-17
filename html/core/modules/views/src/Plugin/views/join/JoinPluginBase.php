@@ -271,7 +271,7 @@ class JoinPluginBase extends PluginBase implements JoinPluginInterface {
       $left_table = NULL;
     }
 
-    $condition = "$left_field = $table[alias].$this->field";
+    $condition = "CAST($left_field as TEXT) = CAST($table[alias].$this->field as TEXT)";
     $arguments = [];
 
     // Tack on the extra.
