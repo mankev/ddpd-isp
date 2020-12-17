@@ -9,6 +9,7 @@ use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\workflow\Entity\WorkflowManager;
 use Drupal\workflow\Entity\WorkflowState;
+use Drupal\workflow\Entity\WorkflowTransition;
 
 /**
  * Plugin implementation of the 'workflow_progress_bar' field formatter.
@@ -106,15 +107,15 @@ class ProgressBarFieldFormatter extends FormatterBase {
     }
     $list_count = count($allowed_values);
 
-    //$entity_type = $entity->getEntityTypeId();
     $field_name = $this->fieldDefinition->getName();
     $entity = $items->getEntity();
+    $entity_type = $entity->getEntityTypeId();
     $current_sid = WorkflowManager::getCurrentStateId($entity, $field_name);
 
     /* @var $current_state WorkflowState */
     $current_state = WorkflowState::load($current_sid);
 
-    $elements = $this->getStateDetail($allowed_values, $list_count, $current_sid);
+    $elements = $this->getStateDetail($entity_type, $entity->id(), $field_name, $allowed_values, $list_count, $current_sid);
 
     return $elements;
   }
@@ -122,7 +123,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
   /**
    * Helper function to get the state data.
    */
-  protected function getStateData($allowed_values, $list_count, $current_sid) {
+  protected function getStateData($entity_type, $entity_id, $field_name, $allowed_values, $list_count, $current_sid) {
     // Array Loop Counter.
     $loop_count = 0;
     $state_data = array();
@@ -141,20 +142,22 @@ class ProgressBarFieldFormatter extends FormatterBase {
           'name' => $value,
           'color' => '#' . $colors[$key],
           'lowest_percent' => $lowest_percent,
+          'time' => \Drupal::service('date.formatter')->format($this->getTransitionTime($entity_type, $entity_id, $field_name, $key), 'short')
         );
       }
       ++$loop_count;
     }
+
     return $state_data;
   }
 
   /**
    * Helper function to get the element data for state.
    */
-  protected function getStateDetail($allowed_values, $list_count, $current_sid) {
+  protected function getStateDetail($entity_type, $entity_id, $field_name, $allowed_values, $list_count, $current_sid) {
     $elements = [];
     // Get the state value for each row.
-    $state = $this->getStateData($allowed_values, $list_count, $current_sid);
+    $state = $this->getStateData($entity_type, $entity_id, $field_name, $allowed_values, $list_count, $current_sid);
     $elements[0] = [
       '#theme' => 'workflow_progress_bar_format',
       '#state' => $state,
@@ -162,6 +165,40 @@ class ProgressBarFieldFormatter extends FormatterBase {
     ];
 
     return $elements;
+  }
+
+  /**
+   * Helper function to get transition time for a state
+   */
+  protected function getTransitionTime($entity_type, $entity_id, $field_name = '', $state = '', $transition_type = 'workflow_transition') {
+
+    /** @var $query \Drupal\Core\Entity\Query\QueryInterface */
+    $query = \Drupal::entityQuery($transition_type)
+      ->condition('entity_type', $entity_type)
+      ->sort('timestamp', 'DESC')
+      ->range(0,1)
+      ->addTag($transition_type);
+    if (!empty($entity_ids)) {
+      $query->condition('entity_id', $entity_ids, 'IN');
+    }
+    if ($field_name != '') {
+      $query->condition('field_name', $field_name, '=');
+    }
+    if ($state != '') {
+      $query->condition('to_sid', $state, '=');
+    }
+
+    $ids = $query->execute();
+    if (!empty($ids)) {
+      $transition_id = array_pop($ids);
+      $transition = WorkflowTransition::load($transition_id);
+      if ($transition instanceof WorkflowTransition) {
+        $timestamp = $transition->get('timestamp')->getValue();
+        if (!empty($timestamp) && isset($timestamp[0]['value'])) {
+          return $timestamp[0]['value'];
+        }
+      }
+    }
   }
 
 }
