@@ -3534,6 +3534,76 @@
         }
     },
     {
+        "name": "drupal/ajax_comments",
+        "version": "1.0.0-beta2",
+        "version_normalized": "1.0.0.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/ajax_comments.git",
+            "reference": "8.x-1.0-beta2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/ajax_comments-8.x-1.0-beta2.zip",
+            "reference": "8.x-1.0-beta2",
+            "shasum": "a63dbe780b4ef519e12812c7e220fea40e0e228e"
+        },
+        "require": {
+            "drupal/core": "^8"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-beta2",
+                "datestamp": "1539817084",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "acouch",
+                "homepage": "https://www.drupal.org/user/151868"
+            },
+            {
+                "name": "danmuzyka",
+                "homepage": "https://www.drupal.org/user/48685"
+            },
+            {
+                "name": "formatC&#039;vt",
+                "homepage": "https://www.drupal.org/user/1853874"
+            },
+            {
+                "name": "muschpusch",
+                "homepage": "https://www.drupal.org/user/257634"
+            },
+            {
+                "name": "neochief",
+                "homepage": "https://www.drupal.org/user/233667"
+            },
+            {
+                "name": "qzmenko",
+                "homepage": "https://www.drupal.org/user/3220037"
+            },
+            {
+                "name": "rjbrown99",
+                "homepage": "https://www.drupal.org/user/367845"
+            }
+        ],
+        "description": "Module makes comments load without a page refresh via AJAX",
+        "homepage": "https://www.drupal.org/project/ajax_comments",
+        "support": {
+            "source": "https://git.drupalcode.org/project/ajax_comments"
+        }
+    },
+    {
         "name": "drupal/autosave_form",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",
@@ -4136,6 +4206,180 @@
             "phpcs",
             "standards"
         ]
+    },
+    {
+        "name": "drupal/comment_ajax_pager",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/comment_ajax_pager.git",
+            "reference": "8.x-1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/comment_ajax_pager-8.x-1.5.zip",
+            "reference": "8.x-1.5",
+            "shasum": "42eeccdcbf6a8714949cc435fd6828d3b43b5e70"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.5",
+                "datestamp": "1588261436",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Glyanec.NET",
+                "homepage": "https://www.drupal.org/user/2610102"
+            },
+            {
+                "name": "sunny@glyanec.net",
+                "homepage": "https://www.drupal.org/user/3547342"
+            }
+        ],
+        "description": "Comment ajax pager function",
+        "homepage": "https://www.drupal.org/project/comment_ajax_pager",
+        "support": {
+            "source": "https://git.drupalcode.org/project/comment_ajax_pager"
+        }
+    },
+    {
+        "name": "drupal/conditional_fields",
+        "version": "1.0.0-alpha9",
+        "version_normalized": "1.0.0.0-alpha9",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/conditional_fields.git",
+            "reference": "8.x-1.0-alpha9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/conditional_fields-8.x-1.0-alpha9.zip",
+            "reference": "8.x-1.0-alpha9",
+            "shasum": "74448f9fbd7a2ac83bea49fec75736b4932c8fc4"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha9",
+                "datestamp": "1596049134",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Adyax",
+                "homepage": "https://www.adyax.com/"
+            },
+            {
+                "name": "OlgaRabodzei",
+                "homepage": "https://www.drupal.org/user/3389198"
+            },
+            {
+                "name": "colan",
+                "homepage": "https://www.drupal.org/user/58704"
+            },
+            {
+                "name": "ergonlogic",
+                "homepage": "https://www.drupal.org/user/368613"
+            },
+            {
+                "name": "geek-merlin",
+                "homepage": "https://www.drupal.org/user/229048"
+            },
+            {
+                "name": "itsekhmistro",
+                "homepage": "https://www.drupal.org/user/928152"
+            },
+            {
+                "name": "peterpoe",
+                "homepage": "https://www.drupal.org/user/55674"
+            },
+            {
+                "name": "thalles",
+                "homepage": "https://www.drupal.org/user/3589086"
+            }
+        ],
+        "description": "Conditional fields",
+        "homepage": "https://www.drupal.org/project/conditional_fields",
+        "support": {
+            "source": "https://git.drupalcode.org/project/conditional_fields"
+        }
+    },
+    {
+        "name": "drupal/config_delete",
+        "version": "1.17.0",
+        "version_normalized": "1.17.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/config_delete.git",
+            "reference": "8.x-1.17"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/config_delete-8.x-1.17.zip",
+            "reference": "8.x-1.17",
+            "shasum": "3213000ffee27fb2595d419457e5a0e8182a1308"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.17",
+                "datestamp": "1585809608",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Goran Nikolovski",
+                "homepage": "https://gorannikolovski.com",
+                "email": "goran@gorannikolovski.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Delete configuration items from the UI.",
+        "homepage": "https://www.drupal.org/project/config_delete",
+        "support": {
+            "source": "https://git.drupalcode.org/project/config_delete",
+            "issues": "https://www.drupal.org/project/issues/config_delete",
+            "email": "goran@gorannikolovski.com"
+        }
     },
     {
         "name": "drupal/config_rewrite",
@@ -4849,6 +5093,8 @@
                 }
             },
             "patches_applied": {
+                "3183425 - Claro has artifacts in chrome": "https://www.drupal.org/files/issues/2020-11-25/3183425-claro-styling-64.patch",
+                "3045171 - Layout buider cannot save with embedded form": "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch",
                 "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                 "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
                 "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
@@ -5283,6 +5529,199 @@
         "homepage": "https://www.drupal.org/project/ctools",
         "support": {
             "source": "https://git.drupalcode.org/project/ctools"
+        }
+    },
+    {
+        "name": "drupal/devel",
+        "version": "4.0.1",
+        "version_normalized": "4.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/devel.git",
+            "reference": "4.0.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/devel-4.0.1.zip",
+            "reference": "4.0.1",
+            "shasum": "cf2458de1cbac00a88ed26ae3da2cf331e1bc047"
+        },
+        "require": {
+            "doctrine/common": "^2.7",
+            "drupal/core": "^8.8 || ^9",
+            "symfony/var-dumper": "^4 || ^5"
+        },
+        "conflict": {
+            "kint-php/kint": "<3"
+        },
+        "require-dev": {
+            "composer/installers": "^1",
+            "cweagans/composer-patches": "~1.0",
+            "drupal/core-composer-scaffold": "^8.0",
+            "drupal/core-dev": "^8.0",
+            "drupal/core-recommended": "^8.0",
+            "drush/drush": "^10",
+            "mglaman/phpstan-drupal": "^0.12",
+            "php-parallel-lint/php-parallel-lint": "^1.2",
+            "phpstan/phpstan-deprecation-rules": "^0.12",
+            "zaporylie/composer-drupal-optimizations": "^1.0"
+        },
+        "suggest": {
+            "kint-php/kint": "Kint provides an informative display of arrays/objects. Useful for debugging and developing."
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "4.0.1",
+                "datestamp": "1600300079",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "installer-paths": {
+                "web/core": [
+                    "type:drupal-core"
+                ],
+                "web/libraries/{$name}": [
+                    "type:drupal-library"
+                ],
+                "web/modules/contrib/{$name}": [
+                    "type:drupal-module"
+                ],
+                "web/profiles/{$name}": [
+                    "type:drupal-profile"
+                ],
+                "web/themes/{$name}": [
+                    "type:drupal-theme"
+                ],
+                "drush/{$name}": [
+                    "type:drupal-drush"
+                ]
+            },
+            "drupal-scaffold": {
+                "locations": {
+                    "web-root": "web/"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9 || ^10"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                ".spoons/ScriptHandler.php"
+            ]
+        },
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "scripts": {
+            "si": [
+                "drush si -v --db-url=${SIMPLETEST_DB:-mysql://root:password@mariadb/db}"
+            ],
+            "phpcs": [
+                "phpcs --runtime-set ignore_warnings_on_exit 1 --runtime-set ignore_errors_on_exit 1 web/modules/custom"
+            ],
+            "lint": [
+                "parallel-lint --exclude web --exclude vendor ."
+            ],
+            "webserver": [
+                "cd web && php -S 0.0.0.0:8888 .ht.router.php"
+            ],
+            "chromedriver": [
+                "chromedriver --port=9515 --verbose --whitelisted-ips --log-path=/tmp/chromedriver.log --no-sandbox"
+            ],
+            "unit": [
+                "phpunit --verbose web/modules/custom"
+            ],
+            "phpstan": [
+                "phpstan analyse web/modules/custom"
+            ],
+            "stylelint": [
+                "yarn --silent --cwd web/core stylelint --formatter verbose --config ./.stylelintrc.json ../modules/custom/**/*.css"
+            ],
+            "eslint": [
+                "yarn --silent --cwd web/core eslint -c ./.eslintrc.json ../modules/custom"
+            ],
+            "post-update-cmd": [
+                "Spoons\\ScriptHandler::createSymlinks"
+            ]
+        },
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "drupalspoons",
+                "homepage": "https://www.drupal.org/user/3647684"
+            },
+            {
+                "name": "moshe weitzman",
+                "homepage": "https://www.drupal.org/user/23"
+            }
+        ],
+        "description": "Various blocks, pages, and functions for developers.",
+        "homepage": "https://www.drupal.org/project/devel",
+        "support": {
+            "source": "https://gitlab.com/drupalspoons/devel",
+            "issues": "https://gitlab.com/drupalspoons/devel/-/issues",
+            "slack": "https://drupal.slack.com/archives/C012WAW1MH6"
+        }
+    },
+    {
+        "name": "drupal/devel_php",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/devel_php.git",
+            "reference": "8.x-1.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/devel_php-8.x-1.3.zip",
+            "reference": "8.x-1.3",
+            "shasum": "73282d23331c36c0460bfb0c1efd124fe89549b4"
+        },
+        "require": {
+            "drupal/core": "^8.8 || ^9",
+            "drupal/devel": ">=2.1"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.3",
+                "datestamp": "1601974470",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Luca Lusso (lussoluca)",
+                "homepage": "https://www.drupal.org/user/138068",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Florent Torregrosa (Grimreaper)",
+                "homepage": "https://www.drupal.org/user/2388214",
+                "role": "Co-maintainer"
+            }
+        ],
+        "description": "Re-add Execute PHP feature to Devel.",
+        "homepage": "https://drupal.org/project/devel_php",
+        "support": {
+            "source": "https://git.drupalcode.org/project/devel_php",
+            "issues": "https://drupal.org/project/issues/devel_php"
         }
     },
     {
@@ -6201,6 +6640,68 @@
         }
     },
     {
+        "name": "drupal/facets",
+        "version": "1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/facets.git",
+            "reference": "8.x-1.6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.6.zip",
+            "reference": "8.x-1.6",
+            "shasum": "4942b62f1cae20eaface3c0627551716c8706255"
+        },
+        "require": {
+            "drupal/core": "^8.8 || ^9"
+        },
+        "require-dev": {
+            "drupal/search_api": "~1.5"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.6",
+                "datestamp": "1604397981",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "branch-alias": {
+                "dev-8.x-1.x": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "See all contributors",
+                "homepage": "https://www.drupal.org/node/2348769/committers"
+            },
+            {
+                "name": "StryKaizer",
+                "homepage": "https://www.drupal.org/user/462700"
+            },
+            {
+                "name": "borisson_",
+                "homepage": "https://www.drupal.org/user/2393360"
+            }
+        ],
+        "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
+        "homepage": "https://www.drupal.org/project/facets",
+        "support": {
+            "source": "git://git.drupal.org/project/facets.git",
+            "issues": "https://www.drupal.org/project/issues/facets",
+            "irc": "irc://irc.freenode.org/drupal-search-api"
+        }
+    },
+    {
         "name": "drupal/field_formatter",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",
@@ -6336,6 +6837,72 @@
         }
     },
     {
+        "name": "drupal/field_permissions",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/field_permissions.git",
+            "reference": "8.x-1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/field_permissions-8.x-1.1.zip",
+            "reference": "8.x-1.1",
+            "shasum": "11e31db94999e6871ad7633455315bc27989a7ea"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.1",
+                "datestamp": "1598646882",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "branch-alias": {
+                "dev-8.x-1.x": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "RobLoach",
+                "homepage": "https://www.drupal.org/user/61114"
+            },
+            {
+                "name": "japerry",
+                "homepage": "https://www.drupal.org/user/45640"
+            },
+            {
+                "name": "jhedstrom",
+                "homepage": "https://www.drupal.org/user/208732"
+            },
+            {
+                "name": "mariacha1",
+                "homepage": "https://www.drupal.org/user/2210776"
+            },
+            {
+                "name": "markus_petrux",
+                "homepage": "https://www.drupal.org/user/39593"
+            }
+        ],
+        "description": "The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.",
+        "homepage": "https://www.drupal.org/project/field_permissions",
+        "support": {
+            "source": "https://git.drupalcode.org/project/field_permissions",
+            "issues": "https://www.drupal.org/project/issues/field_permissions"
+        }
+    },
+    {
         "name": "drupal/file_entity",
         "version": "2.0.0-beta6",
         "version_normalized": "2.0.0.0-beta6",
@@ -6458,6 +7025,60 @@
         }
     },
     {
+        "name": "drupal/flood_unblock",
+        "version": "3.1.3",
+        "version_normalized": "3.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/flood_unblock.git",
+            "reference": "3.1.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/flood_unblock-3.1.3.zip",
+            "reference": "3.1.3",
+            "shasum": "733256c613c95e6fbe8e9d11bc3a9578617689a6"
+        },
+        "require": {
+            "drupal/core": "^8.8.4 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "3.1.3",
+                "datestamp": "1603893020",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "batigolix",
+                "homepage": "https://www.drupal.org/user/22175"
+            },
+            {
+                "name": "fabianderijk",
+                "homepage": "https://www.drupal.org/user/278745"
+            },
+            {
+                "name": "tomvv",
+                "homepage": "https://www.drupal.org/user/2748021"
+            }
+        ],
+        "description": "Unblocks IP addresses and user ID's that are blocked after multiple failed login attempts.",
+        "homepage": "https://www.drupal.org/project/flood_unblock",
+        "support": {
+            "source": "https://git.drupalcode.org/project/flood_unblock"
+        }
+    },
+    {
         "name": "drupal/fontawesome",
         "version": "2.17.0",
         "version_normalized": "2.17.0.0",
@@ -6518,6 +7139,67 @@
         "homepage": "https://www.drupal.org/project/fontawesome",
         "support": {
             "source": "https://git.drupalcode.org/project/fontawesome"
+        }
+    },
+    {
+        "name": "drupal/formblock",
+        "version": "2.0.0-beta2",
+        "version_normalized": "2.0.0.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/formblock.git",
+            "reference": "2.0.0-beta2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/formblock-2.0.0-beta2.zip",
+            "reference": "2.0.0-beta2",
+            "shasum": "4998e9495917bf77ef40fe11d3f514aa7b1bd6a6"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "2.0.0-beta2",
+                "datestamp": "1599176366",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            },
+            "patches_applied": {
+                "3090910 - Feature: Node edit form block": "https://www.drupal.org/files/issues/2020-12-07/formblock-node_edit_form-3090910-5.patch"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "AndyD328",
+                "homepage": "https://www.drupal.org/user/2261214"
+            },
+            {
+                "name": "chx",
+                "homepage": "https://www.drupal.org/user/9446"
+            },
+            {
+                "name": "mikey_p",
+                "homepage": "https://www.drupal.org/user/62496"
+            },
+            {
+                "name": "nedjo",
+                "homepage": "https://www.drupal.org/user/4481"
+            }
+        ],
+        "description": "Enables the presentation of node creation forms in blocks. This is particularly useful for including forms on Layout Builder & Panels.",
+        "homepage": "https://www.drupal.org/project/formblock",
+        "support": {
+            "source": "https://git.drupalcode.org/project/formblock"
         }
     },
     {
@@ -7051,6 +7733,54 @@
         "support": {
             "source": "http://cgit.drupalcode.org/key",
             "issues": "http://drupal.org/project/key"
+        }
+    },
+    {
+        "name": "drupal/layout_builder_component_attributes",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/layout_builder_component_attributes.git",
+            "reference": "1.1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/layout_builder_component_attributes-1.1.1.zip",
+            "reference": "1.1.1",
+            "shasum": "36650d031e649f4fccf5cec38b385ef8354d0176"
+        },
+        "require": {
+            "drupal/core": "^8.8|^9.0",
+            "neilime/php-css-lint": "^2.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "1.1.1",
+                "datestamp": "1605801492",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Chris Burge",
+                "homepage": "https://www.drupal.org/user/1826152"
+            }
+        ],
+        "description": "Allows editors to add HTML attributes to Layout Builder components (blocks)",
+        "homepage": "https://drupal.org/project/layout_builder_component_attributes",
+        "support": {
+            "source": "https://cgit.drupalcode.org/layout_builder_component_attributes",
+            "issues": "https://drupal.org/project/issues/layout_builder_component_attributes"
         }
     },
     {
@@ -9338,6 +10068,7 @@
                 "dev-8.x-4.x": "4.x-dev"
             },
             "patches_applied": {
+                "2849867 - Custom attributes in panels blocks and variants": "https://www.drupal.org/files/issues/2020-04-30/panels_custom_attributes_in_panels_blocks-2849867-78.patch",
                 "2878684 - Use String.match to correlate regions when switching Layouts in Panels IPE": "https://www.drupal.org/files/issues/panels-ipe-2878684-3.patch",
                 "Enter drupal/panels patch #2667755 description here": "https://www.drupal.org/files/issues/bandaid.patch",
                 "Enter drupal/panels patch #2869412 description here": "https://www.drupal.org/files/issues/2018-03-19/panels--page_title_does_not_display--2869412-27.patch",
@@ -9694,6 +10425,136 @@
         }
     },
     {
+        "name": "drupal/progress_bar",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/progress_bar.git",
+            "reference": "8.x-1.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/progress_bar-8.x-1.1.zip",
+            "reference": "8.x-1.1",
+            "shasum": "c420f06bf794ef692a014bd2da693ec75b4ecd97"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.1",
+                "datestamp": "1589459532",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "dishabhadra",
+                "homepage": "https://www.drupal.org/user/2810419"
+            },
+            {
+                "name": "manojapare",
+                "homepage": "https://www.drupal.org/user/2825053"
+            },
+            {
+                "name": "rakesh.gectcr",
+                "homepage": "https://www.drupal.org/user/1177822"
+            }
+        ],
+        "description": "Modules provide Progress bar field formatter for List field and State field of commerce.",
+        "homepage": "https://www.drupal.org/project/progress_bar",
+        "support": {
+            "source": "https://git.drupalcode.org/project/progress_bar"
+        }
+    },
+    {
+        "name": "drupal/realname",
+        "version": "1.0.0-rc2",
+        "version_normalized": "1.0.0.0-RC2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/realname.git",
+            "reference": "8.x-1.0-rc2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/realname-8.x-1.0-rc2.zip",
+            "reference": "8.x-1.0-rc2",
+            "shasum": "f5bd7f98fdf17ef3b7d8eb3c1f9a5c043f121354"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/token": "^1.0.0-alpha2"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-rc2",
+                "datestamp": "1548970380",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "RC releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "hass",
+                "homepage": "https://www.drupal.org/u/hass"
+            },
+            {
+                "name": "See other contributors",
+                "homepage": "https://www.drupal.org/node/266280/committers"
+            },
+            {
+                "name": "coderintherye",
+                "homepage": "https://www.drupal.org/user/297478"
+            },
+            {
+                "name": "hass",
+                "homepage": "https://www.drupal.org/user/85918"
+            },
+            {
+                "name": "rmiddle",
+                "homepage": "https://www.drupal.org/user/192183"
+            },
+            {
+                "name": "theamoeba",
+                "homepage": "https://www.drupal.org/user/251700"
+            },
+            {
+                "name": "tkuldeep17",
+                "homepage": "https://www.drupal.org/user/2498278"
+            },
+            {
+                "name": "voxpelli",
+                "homepage": "https://www.drupal.org/user/341713"
+            }
+        ],
+        "description": "Provides token-based name displays for users.",
+        "homepage": "https://www.drupal.org/project/realname",
+        "support": {
+            "source": "https://git.drupal.org/project/realname.git",
+            "issues": "https://www.drupal.org/project/issues/realname"
+        }
+    },
+    {
         "name": "drupal/redirect",
         "version": "1.6.0",
         "version_normalized": "1.6.0.0",
@@ -9807,43 +10668,40 @@
     },
     {
         "name": "drupal/rules",
-        "version": "3.0.0-alpha6",
-        "version_normalized": "3.0.0.0-alpha6",
+        "version": "dev-3.x",
+        "version_normalized": "dev-3.x",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/rules.git",
-            "reference": "8.x-3.0-alpha6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha6.zip",
-            "reference": "8.x-3.0-alpha6",
-            "shasum": "073bf5c23f0ef8f1aebf56538249d50d631d5a24"
+            "reference": "cfe1c81ee61616e91f750248c9afe28c00278b91"
         },
         "require": {
-            "drupal/core": "^8.7",
-            "drupal/typed_data": "1.x-dev"
+            "drupal/core": "^8.8.2 || ^9",
+            "drupal/typed_data": "^1.0"
         },
         "require-dev": {
             "drupal/typed_data": "1.x-dev"
         },
         "type": "drupal-module",
         "extra": {
+            "branch-alias": {
+                "dev-3.x": "3.x-dev"
+            },
             "drupal": {
-                "version": "8.x-3.0-alpha6",
-                "datestamp": "1595975406",
+                "version": "8.x-3.x-dev",
+                "datestamp": "1606180148",
                 "security-coverage": {
                     "status": "not-covered",
-                    "message": "Alpha releases are not covered by Drupal security advisories."
+                    "message": "Dev releases are not covered by Drupal security advisories."
                 }
             },
             "drush": {
                 "services": {
-                    "drush.services.yml": "^9"
+                    "drush.services.yml": "^9 || ^10"
                 }
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "notification-url": "https://packages.drupal.org/8/downloads",
         "license": [
             "GPL-2.0-or-later"
@@ -10222,6 +11080,78 @@
         }
     },
     {
+        "name": "drupal/shield",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/shield.git",
+            "reference": "8.x-1.4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/shield-8.x-1.4.zip",
+            "reference": "8.x-1.4",
+            "shasum": "0c3950fa9a2614958d5f7488da9ff357f794723e"
+        },
+        "require": {
+            "drupal/core": "^8.6 || ^9"
+        },
+        "require-dev": {
+            "drupal/key": "^1.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.4",
+                "datestamp": "1585608547",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "branch-alias": {
+                "dev-8.x-1.x": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "badjava",
+                "homepage": "https://www.drupal.org/user/83372"
+            },
+            {
+                "name": "chx",
+                "homepage": "https://www.drupal.org/user/9446"
+            },
+            {
+                "name": "geek-merlin",
+                "homepage": "https://www.drupal.org/user/229048"
+            },
+            {
+                "name": "japerry",
+                "homepage": "https://www.drupal.org/user/45640"
+            },
+            {
+                "name": "kalman.hosszu",
+                "homepage": "https://www.drupal.org/user/267481"
+            },
+            {
+                "name": "pkiraly",
+                "homepage": "https://www.drupal.org/user/352587"
+            }
+        ],
+        "description": "Creates a general shield for the site.",
+        "homepage": "https://www.drupal.org/project/shield",
+        "support": {
+            "source": "https://git.drupalcode.org/project/shield"
+        }
+    },
+    {
         "name": "drupal/shs",
         "version": "1.0.0-alpha5",
         "version_normalized": "1.0.0.0-alpha5",
@@ -10573,6 +11503,56 @@
         }
     },
     {
+        "name": "drupal/tac_lite",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/tac_lite.git",
+            "reference": "8.x-1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/tac_lite-8.x-1.5.zip",
+            "reference": "8.x-1.5",
+            "shasum": "acabe76a4db455761254344003df3af5f9fa320e"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.5",
+                "datestamp": "1596370397",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Dave Cohen",
+                "homepage": "https://www.drupal.org/user/18468"
+            },
+            {
+                "name": "mukila",
+                "homepage": "https://www.drupal.org/user/3223526"
+            }
+        ],
+        "description": "Simple access control based on categories.",
+        "homepage": "https://www.drupal.org/project/tac_lite",
+        "support": {
+            "source": "https://git.drupalcode.org/project/tac_lite"
+        }
+    },
+    {
         "name": "drupal/token",
         "version": "1.7.0",
         "version_normalized": "1.7.0.0",
@@ -10899,6 +11879,124 @@
         }
     },
     {
+        "name": "drupal/views_aggregator",
+        "version": "1.0.0-beta2",
+        "version_normalized": "1.0.0.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/views_aggregator.git",
+            "reference": "8.x-1.0-beta2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/views_aggregator-8.x-1.0-beta2.zip",
+            "reference": "8.x-1.0-beta2",
+            "shasum": "45bce7a21ff203c84e50c3727948bc2d76e1be59"
+        },
+        "require": {
+            "drupal/core": "^8.7.7 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-beta2",
+                "datestamp": "1606085848",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "JordiK",
+                "homepage": "https://www.drupal.org/user/3472907"
+            },
+            {
+                "name": "RdeBoer",
+                "homepage": "https://www.drupal.org/user/404007"
+            },
+            {
+                "name": "TR",
+                "homepage": "https://www.drupal.org/user/202830"
+            }
+        ],
+        "description": "A Views plugin that operates on the results <em>after</em> the database query has run, thus offering aggregation functions not otherwise possible.",
+        "homepage": "https://www.drupal.org/project/views_aggregator",
+        "support": {
+            "source": "https://git.drupalcode.org/project/views_aggregator",
+            "issues": "https://www.drupal.org/project/issues/views_aggregator"
+        }
+    },
+    {
+        "name": "drupal/views_argument_token",
+        "version": "1.0.0-beta1",
+        "version_normalized": "1.0.0.0-beta1",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/views_argument_token.git",
+            "reference": "8.x-1.0-beta1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/views_argument_token-8.x-1.0-beta1.zip",
+            "reference": "8.x-1.0-beta1",
+            "shasum": "190d1bee5963369c69a1d256da52837504290c57"
+        },
+        "require": {
+            "drupal/core": "^8"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-beta1",
+                "datestamp": "1508510043",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "eme",
+                "homepage": "https://www.drupal.org/u/eme"
+            },
+            {
+                "name": "MichaelB",
+                "homepage": "https://www.drupal.org/user/2309046"
+            },
+            {
+                "name": "eme",
+                "homepage": "https://www.drupal.org/user/542492"
+            },
+            {
+                "name": "matio89",
+                "homepage": "https://www.drupal.org/user/2320090"
+            },
+            {
+                "name": "mh.marouan",
+                "homepage": "https://www.drupal.org/user/3203501"
+            }
+        ],
+        "description": "Views Token Argument allows you to use token as contextual filter for Views.",
+        "homepage": "http://drupal.org/project/views_argument_token",
+        "support": {
+            "source": "https://git.drupalcode.org/project/views_argument_token",
+            "issues": "https://www.drupal.org/project/issues/views_argument_token"
+        }
+    },
+    {
         "name": "drupal/views_autocomplete_filters",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",
@@ -11018,6 +12116,75 @@
         "support": {
             "source": "https://git.drupalcode.org/project/views_bootstrap",
             "issues": "https://www.drupal.org/project/issues/views_bootstrap"
+        }
+    },
+    {
+        "name": "drupal/views_conditional",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/views_conditional.git",
+            "reference": "8.x-1.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/views_conditional-8.x-1.2.zip",
+            "reference": "8.x-1.2",
+            "shasum": "cec1b52092d0a0b4298137835439dde888484ef4"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.2",
+                "datestamp": "1602687547",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "patches_applied": {
+                "3053293 - html in output rendered as plain text": "https://www.drupal.org/files/issues/2020-10-28/3053293-html-17.patch"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Shelane French",
+                "homepage": "https://www.drupal.org/u/shelane",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Anand Toshniwal (anand.toshniwal93)",
+                "homepage": "https://www.drupal.org/u/anandtoshniwal93",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Timofey Denisov (ofry)",
+                "homepage": "https://www.drupal.org/u/ofry",
+                "role": "Maintainer"
+            },
+            {
+                "name": "MChittenden",
+                "homepage": "https://www.drupal.org/u/mchittenden",
+                "role": "Maintainer"
+            }
+        ],
+        "description": "Views Conditional is a simple module that allows you to define conditionals with fields in views",
+        "homepage": "https://www.drupal.org/project/views_conditional",
+        "keywords": [
+            "Drupal"
+        ],
+        "support": {
+            "source": "http://cgit.drupalcode.org/views_conditional",
+            "issues": "https://www.drupal.org/project/issues/views_conditional"
         }
     },
     {
@@ -11205,6 +12372,56 @@
         }
     },
     {
+        "name": "drupal/webform_analysis",
+        "version": "1.0.0-beta7",
+        "version_normalized": "1.0.0.0-beta7",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/webform_analysis.git",
+            "reference": "8.x-1.0-beta7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform_analysis-8.x-1.0-beta7.zip",
+            "reference": "8.x-1.0-beta7",
+            "shasum": "218ee42c0d3d5c62bb29e0e68134188dc2a16c85"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/webform": "*"
+        },
+        "require-dev": {
+            "drupal/webform_node": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-beta7",
+                "datestamp": "1540735084",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "lbaran",
+                "homepage": "https://www.drupal.org/user/3368098"
+            }
+        ],
+        "description": "Enables to obtain statistics on the results of form submissions.",
+        "homepage": "https://www.drupal.org/project/webform_analysis",
+        "support": {
+            "source": "https://git.drupalcode.org/project/webform_analysis"
+        }
+    },
+    {
         "name": "drupal/webform_calculation",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -11330,6 +12547,9 @@
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
                 }
+            },
+            "patches_applied": {
+                "3186559 - Add support for an unmapped fields token": "https://www.drupal.org/files/issues/2020-12-04/webform_cc-unmapped_values_token-3186559-2.patch"
             }
         },
         "installation-source": "dist",
@@ -12044,6 +13264,143 @@
         }
     },
     {
+        "name": "drupal/workflow",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/workflow.git",
+            "reference": "8.x-1.4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/workflow-8.x-1.4.zip",
+            "reference": "8.x-1.4",
+            "shasum": "5f4777371a002f44524e23b5b3717fac87b5c0ea"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.4",
+                "datestamp": "1590740708",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Bastlynn",
+                "homepage": "https://www.drupal.org/user/275249"
+            },
+            {
+                "name": "Heine",
+                "homepage": "https://www.drupal.org/user/17943"
+            },
+            {
+                "name": "JacobSingh",
+                "homepage": "https://www.drupal.org/user/68912"
+            },
+            {
+                "name": "NancyDru",
+                "homepage": "https://www.drupal.org/user/101412"
+            },
+            {
+                "name": "eaton",
+                "homepage": "https://www.drupal.org/user/16496"
+            },
+            {
+                "name": "johnv",
+                "homepage": "https://www.drupal.org/user/591042"
+            },
+            {
+                "name": "jvandyk",
+                "homepage": "https://www.drupal.org/user/2375"
+            },
+            {
+                "name": "mfredrickson",
+                "homepage": "https://www.drupal.org/user/31994"
+            },
+            {
+                "name": "q0rban",
+                "homepage": "https://www.drupal.org/user/31022"
+            }
+        ],
+        "description": "Defines a field type with Workflows, containing customizable state transitions.",
+        "homepage": "https://www.drupal.org/project/workflow",
+        "support": {
+            "source": "https://git.drupalcode.org/project/workflow"
+        }
+    },
+    {
+        "name": "drupal/workflow_notifications",
+        "version": "1.0.0-alpha3",
+        "version_normalized": "1.0.0.0-alpha3",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/workflow_notifications.git",
+            "reference": "8.x-1.0-alpha3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/workflow_notifications-8.x-1.0-alpha3.zip",
+            "reference": "8.x-1.0-alpha3",
+            "shasum": "24e7169510d54e55960d6217e9ea460acbe337f7"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/workflow": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha3",
+                "datestamp": "1522987112",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "PunamShelke",
+                "homepage": "https://www.drupal.org/user/3509619"
+            },
+            {
+                "name": "Udhaya Kumar",
+                "homepage": "https://www.drupal.org/user/1349252"
+            },
+            {
+                "name": "johnv",
+                "homepage": "https://www.drupal.org/user/591042"
+            },
+            {
+                "name": "saranya ashokkumar",
+                "homepage": "https://www.drupal.org/user/3429959"
+            }
+        ],
+        "description": "Notifications for workflow state change",
+        "homepage": "https://www.drupal.org/project/workflow_notifications",
+        "support": {
+            "source": "https://git.drupalcode.org/project/workflow_notifications"
+        }
+    },
+    {
         "name": "drupal/wxt_bootstrap",
         "version": "1.26.0",
         "version_normalized": "1.26.0.0",
@@ -12268,6 +13625,52 @@
         "homepage": "https://www.drupal.org/project/wxt_library",
         "support": {
             "source": "https://git.drupalcode.org/project/wxt_library"
+        }
+    },
+    {
+        "name": "drupal/wysiwyg_linebreaks",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/wysiwyg_linebreaks.git",
+            "reference": "8.x-1.10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/wysiwyg_linebreaks-8.x-1.10.zip",
+            "reference": "8.x-1.10",
+            "shasum": "64f529906354e9689f1a1926ef68959fc627a3ca"
+        },
+        "require": {
+            "drupal/core": "^8"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.10",
+                "datestamp": "1542910380",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "geerlingguy",
+                "homepage": "https://www.drupal.org/user/389011"
+            }
+        ],
+        "description": "Plugin to allow legacy content editing and more sane formatting in wysiwyg editors.",
+        "homepage": "https://www.drupal.org/project/wysiwyg_linebreaks",
+        "support": {
+            "source": "https://git.drupalcode.org/project/wysiwyg_linebreaks"
         }
     },
     {
@@ -14092,6 +15495,71 @@
             "duplicate",
             "object",
             "object graph"
+        ]
+    },
+    {
+        "name": "neilime/php-css-lint",
+        "version": "v2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/neilime/php-css-lint.git",
+            "reference": "11b2961a1b522d790f64c0a28af5715cae6ebb39"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/neilime/php-css-lint/zipball/11b2961a1b522d790f64c0a28af5715cae6ebb39",
+            "reference": "11b2961a1b522d790f64c0a28af5715cae6ebb39",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": "^7.3"
+        },
+        "require-dev": {
+            "pcov/clobber": "^2.0",
+            "phpstan/extension-installer": "^1.0",
+            "phpstan/phpstan": "^0.12",
+            "phpstan/phpstan-phpunit": "^0.12",
+            "phpunit/phpunit": "^9.2.5",
+            "slam/phpstan-laminas-framework": "^0.12",
+            "squizlabs/php_codesniffer": "^3.5"
+        },
+        "time": "2020-07-09T09:27:31+00:00",
+        "bin": [
+            "scripts/php-css-lint"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "CssLint\\": "src/CssLint"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Neilime",
+                "homepage": "https://github.com/neilime",
+                "role": "Developer"
+            }
+        ],
+        "description": "Powerful & memory efficient CSS linter for PHP",
+        "homepage": "https://neilime.github.io/php-css-lint/",
+        "keywords": [
+            "css",
+            "lint",
+            "linter",
+            "syntax",
+            "validation"
         ]
     },
     {
