@@ -42,6 +42,7 @@ section.block-field-blocknodeoverviewbody,.block-field-blocknodeoverviewfield-re
 .moderation-dashboard {
   border-radius: .25rem;
   margin-bottom: 1rem;
+  font-size: 16px !important;
 }
 
 .moderation-dashboard h2 {
