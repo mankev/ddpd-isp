@@ -56,12 +56,14 @@ class DynamicLocalTasks extends DeriverBase implements ContainerDeriverInterface
   public function getDerivativeDefinitions($base_plugin_definition) {
 
     $this->derivatives = [];
+/*
     $this->derivatives["node.time_tab"] = [
       'route_name' => "page_manager.page_view_time_log_time_log-panels_variant-0",
       'title' => $this->translationManager->translate('Time log'),
       'base_route' => "entity.node.canonical",
       'weight' => 2,
     ];
+*/
 
     return $this->derivatives;
   }

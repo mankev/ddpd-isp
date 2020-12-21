@@ -4,5 +4,5 @@ gcext.local_tasks:
 
 gcext.time_tab:
   route_name: gcext.time_tab
-  parent_id: entity.node.canonical
+  base_route: entity.node.canonical
   title: 'Time log'
