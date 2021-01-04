@@ -153,6 +153,10 @@
             "drupal/views_conditional": {
                 "3053293 - html in output rendered as plain text":
                 "https://www.drupal.org/files/issues/2020-10-28/3053293-html-17.patch"
+            },
+            "drupal/wxt_library": {
+                "TBD - page title condition problems":
+                "patches/wxt_library-title_condition.patch"
             }
         },
         "patches-ignore": {
