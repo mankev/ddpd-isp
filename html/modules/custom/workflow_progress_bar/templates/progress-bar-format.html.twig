@@ -9,10 +9,19 @@
  * @ingroup themeable
  */
 #}
-<div class="progress-bar-wrapper">
+<div class="progress progress-bar-wrapper">
     {% for item in state %}
-		<div class="progress-bar-formatter" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}">
-			<span class="progress-bar-name">{{ item.name }}</span>
-		</div>
+              {% if loop.last %}
+                      <div class="progress-bar progress-bar-striped progress-bar-section progress-bar-formatter active" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}">
+                              <div class="progress-bar-name">{{ item.name }}</div>
+                              <div class="progress-bar-time">{{ item.time }}</div>
+                      </div>
+              {% else %}
+                      <div class="progress-bar progress-bar-section" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}">
+                              <div class="progress-bar-name">{{ item.name }}</div>
+                              <div class="progress-bar-time">{{ item.time }}</div>
+                      </div>
+              {% endif %}
+
     {% endfor %}
 </div>
