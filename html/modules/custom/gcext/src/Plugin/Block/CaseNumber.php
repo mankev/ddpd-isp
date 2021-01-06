@@ -37,7 +37,9 @@ class CaseNumber extends BlockBase {
 
       $caseNumber = $node->id();
       if ($caseNumber) {
-        $build['case_number']['#markup'] = '<p>' . $caseNumber . '</p>';
+        $build['case_number']['#prefix'] = '<span class="case-number-wrapper"><div class="case-number-label">' . t('Case number: ') . '</span><span class="case-number">';
+        $build['case_number']['#markup'] = $caseNumber;
+        $build['case_number']['#suffix'] = '</span></span';
       }
     }
 
