@@ -155,3 +155,8 @@ ul.js-facets-widget {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.case-alert {
+  padding: 1px;
+  margin-left: 5px;
+}
