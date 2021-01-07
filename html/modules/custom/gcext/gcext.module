@@ -24,10 +24,12 @@ function gcext_menu_local_tasks_alter(&$data, $route_name) {
     'entity.node.workflow_history',
   ];
 
+  $account = \Drupal::currentUser();
+
   if (in_array($route_name, $routes)) {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof \Drupal\node\NodeInterface) {
-      if ($node->bundle() == 'case') {
+      if ($node->bundle() == 'case' && $account->id() != 1) {
         unset($data['tabs'][0]['entity.node.edit_form']);
         unset($data['tabs'][0]['entity.node.delete_form']);
         //unset($data['tabs'][0]['entity.node.version_history']);
