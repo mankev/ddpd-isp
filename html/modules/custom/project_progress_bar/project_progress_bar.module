@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains project_progress_bar.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function project_progress_bar_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the project_progress_bar module.
+    case 'help.page.project_progress_bar':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Modules provide Progress bar field formatter for case date field for project gant chart.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function project_progress_bar_theme() {
+  return [
+    'project_progress_bar_format' => [
+      'variables' => array(
+        'state' => NULL,
+        'label' => NULL,
+      ),
+      'template' => 'progress-bar-format',
+    ],
+  ];
+}

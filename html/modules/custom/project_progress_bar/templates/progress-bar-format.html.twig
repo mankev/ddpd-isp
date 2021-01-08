@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Template for the progress bar.
+ *
+ * Available variables:
+ * - state: Array which contain name, color, percentage, is_first, due.
+ * - label: String to label the progressbar (current state)
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="progress-bar-label">{{ label }}</div>
+<div class="progress progress-bar-wrapper">
+    {% for item in state %}
+        {% if item.is_first %}
+             <div class="progress-bar-time">{{ item.name }}</div>
+        {% endif %}
+        <div class="progress-bar progress-bar-section" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}">
+        {% if item.time %}
+            <div class="progress-bar-name">{{ 'Due'|t }}</div>
+            <div class="progress-bar-time">{{ item.time }}</div>
+        {% endif %}
+    {% endfor %}
+</div>

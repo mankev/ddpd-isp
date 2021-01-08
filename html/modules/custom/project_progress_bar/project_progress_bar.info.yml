@@ -1,0 +1,10 @@
+name: Project Progress Bar
+type: module
+description: Modules provide Progress bar field formatter for date fields on cases
+core: 8.x
+package: Field types
+
+# Information added by Drupal.org packaging script on 2020-05-14
+version: '8.x-1.1'
+project: 'project_progress_bar'
+datestamp: 1589459534
