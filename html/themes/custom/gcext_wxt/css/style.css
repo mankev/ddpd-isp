@@ -160,3 +160,8 @@ ul.js-facets-widget {
   padding: 1px;
   margin-left: 5px;
 }
+
+.project-progress-header {
+    border-bottom: solid 1px #000;
+    margin-bottom: 1.5em;
+}
