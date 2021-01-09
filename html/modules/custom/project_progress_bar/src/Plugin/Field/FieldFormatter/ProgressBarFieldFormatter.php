@@ -12,13 +12,13 @@ use Drupal\workflow\Entity\WorkflowState;
 use Drupal\workflow\Entity\WorkflowTransition;
 
 /**
- * Plugin implementation of the 'workflow_progress_bar' field formatter.
+ * Plugin implementation of the 'project_progress_bar' field formatter.
  *
  * @FieldFormatter(
  *   id = "project_progress_bar",
  *   label = @Translation("Project progress bar"),
  *   field_types = {
- *     "date"
+ *     "datetime"
  *   }
  * )
  */
@@ -106,9 +106,9 @@ class ProgressBarFieldFormatter extends FormatterBase {
 
     $entity = $items->getEntity();
     $entity_type = $entity->getEntityTypeId();
-    $field_name = $this->fieldDefinition->getName();
+    $field_name = 'field_case_status';   // @TODO use wf code to determine wf field
     $current_sid = WorkflowManager::getCurrentStateId($entity, $field_name);
-    
+
     // load the current state to use as a lable on the progressbar
     /* @var $current_state WorkflowState */
     $current_state = WorkflowState::load($current_sid);
@@ -118,14 +118,22 @@ class ProgressBarFieldFormatter extends FormatterBase {
     if (isset($field_project[0]['target_id'])) {
       // get the estimated project completion date from the project
       $project = \Drupal::entityTypeManager()->getStorage('node')->load($field_project[0]['target_id']); 
-      $end = $project->get('field_date_complete')->getValue();
-      $end_date = strtotime($end[0]['value']);
-      // @TODO have a default if project completion date not set or show nothing at all
-   
-      // get the due date from the case 
-      $due_date = strtotime($items[0]['value']);
-    
-      $elements = $this->formatDetail($start_date, $end_date, $due_date, $current_state);
+      $end = $project->get('field_project_complete')->getValue();
+
+      // if project date is set we will generate the progressbar, otherwise leave it empty
+      if (isset($end[0]['value'])) {
+        $end_date = strtotime($end[0]['value']);
+        // if a due date is set
+        if (isset($items[0]) && !empty($items[0])) {
+          $due = $items[0]->getValue();
+          $due_date = strtotime($due['value']);
+        }
+        else {
+          // otherwise we will assume the due date is the same as project completion date
+          $due_date = $end_date;
+        }
+        $elements = $this->formatDetail($start_date, $end_date, $due_date, $current_state);
+      }
     }
 
     return $elements;
@@ -134,26 +142,23 @@ class ProgressBarFieldFormatter extends FormatterBase {
   /**
    * Helper function to get the data.
    */
-  protected function getData($start_date, $end_date, $due_date, $list_count);
+  protected function getData($start_date, $end_date, $due_date, $list_count) {
     // Array Loop Counter.
     $loop_count = 0;
     $state_data = array();
     $lowest_percent = (1 / $list_count) * 100;
     $colors = $this->getSetting('progress_bar_color');
+    $due_period = $this->diffDates($start_date, $due_date);
 
-    while ($loop_count <= $list_count) {
+    while ($loop_count <= $due_period) {
       $state = (($loop_count + 1) / $list_count) * 100;
+      $due = ($due_period == $loop_count) ? \Drupal::service('date.formatter')->format($due_date, 'html_date') :  NULL;
 
-      // current month =  strtotime (start date + loop_count months)
-      // if months between $due_date and current month is zero add time otherwise time is null
-      $due_period = $this->diffDates($start_date, $due_period);
-      $due = $loop_count ? \Drupal::service('date.formatter')->format($due_date, $key), 'short') :  NULL;
-    
       // Add items.
       $state_data[] = array(
         'state' => $state,
         //'name' => $current_state->label(),
-        'color' => '#f2f2f2',  // @TODO change colour on milestones 
+        'color' => '#26374a',  // @TODO change colour on milestones 
         'lowest_percent' => $lowest_percent,
         'time' => $due, 
         'is_first' => $loop_count == 0 ? 1 : 0,
@@ -167,7 +172,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
   /**
    * Helper function to get the element data for state.
    */
-  protected function formatDetail($start_date, $end_date, $due_date, $current_state);
+  protected function formatDetail($start_date, $end_date, $due_date, $current_state) {
     $elements = [];
 
     // get number of months between now and end date for progress bar
@@ -180,7 +185,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
       '#label' => $current_state->label(),
       '#attached' => array('library' => array('project_progress_bar/project-progress-bar')),
     ];
-
+//dpm($elements);
     return $elements;
   }
 

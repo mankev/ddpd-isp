@@ -10,16 +10,14 @@
  * @ingroup themeable
  */
 #}
-<div class="progress-bar-label">{{ label }}</div>
-<div class="progress progress-bar-wrapper">
+<div class="project-bar-label"><i class="fas fa-arrow-circle-right"></i> {{ label }}</div>
+<div class="progress project-bar-wrapper">
     {% for item in state %}
-        {% if item.is_first %}
-             <div class="progress-bar-time">{{ item.name }}</div>
-        {% endif %}
-        <div class="progress-bar progress-bar-section" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}">
+        <div class="progress-bar project-bar-section" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}"></div>
         {% if item.time %}
-            <div class="progress-bar-name">{{ 'Due'|t }}</div>
-            <div class="progress-bar-time">{{ item.time }}</div>
+            <div class="project-bar-formatter">
+              <div class="project-bar-time"><i class="fa fa-calendar" aria-hidden="true"></i> {{ item.time }}</div>
+            </div>
         {% endif %}
     {% endfor %}
 </div>

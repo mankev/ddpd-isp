@@ -1,4 +1,4 @@
-workflow-progress-bar:
+project-progress-bar:
   version: VERSION
   css:
     theme:
