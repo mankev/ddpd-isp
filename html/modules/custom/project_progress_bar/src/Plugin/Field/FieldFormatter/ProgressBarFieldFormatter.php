@@ -29,8 +29,8 @@ class ProgressBarFieldFormatter extends FormatterBase {
    */
   public static function defaultSettings() {
     $defaults = [
-      'progress_bar_color' => [],
-      'exclude_dates' => [],
+      'start_state' => NULL,
+      'end_state' => NULL,
     ];
 
     return $defaults + parent::defaultSettings();
@@ -40,38 +40,31 @@ class ProgressBarFieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    $colors = $this->getSetting('progress_bar_color');
+    $start_state = $this->getSetting('start_state');
+    $end_state = $this->getSetting('end_state');
     $options = [];
 
-    $entityFieldManager = \Drupal::service('entity_field.manager');
-    $fields = $entityFieldManager->getFieldDefinitions('node', 'project');
-    $datefields = [];
-    foreach ($fields as $field) {
-      if ($field instanceof Drupal\field\Entity\FieldConfig) {
-        if ($field->getType() == 'datetime') {
-          $datefields[$field->getName()] = $field->getLabel(); 
-        }
-      }
-    }
+    // @TODO make this more generic
+    $wid = 'case_status';
+    $states = WorkflowState::loadMultiple([], $wid);
 
     /** @var \Drupal\workflow\Entity\WorkflowState $state */
-    foreach ($datefields as $key => $label) {
-      // Creating color field setting.
-      $element['progress_bar_color'][$key] = [
-        '#title' => t('Color for ' . $label),
-        '#type' => 'textfield',
-        '#size' => 6,
-        '#default_value' => $colors[$key],
-      ];
-  
-      $options[$key] = $label;
+    foreach ($states as $key => $state) {
+      $options[$key] = $state->label(); 
     }
 
-    $element['exclude_dates'] = [
-      '#title' => t('Exclude the following date fields'),
-      '#type' => 'checkboxes',
+    $element['start_state'] = [
+      '#title' => t('Starting state'),
+      '#type' => 'select',
       '#options' => $options,
-      '#default_value' => $this->getSetting('exclude_dates'),
+      '#default_value' => $start_state,
+    ];
+
+    $element['end_state'] = [
+      '#title' => t('Completed state'),
+      '#type' => 'select',
+      '#options' => $options,
+      '#default_value' => $end_state,
     ];
 
     return $element;
@@ -89,11 +82,13 @@ class ProgressBarFieldFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     $summary = [];
-    $colors = implode(', ', array_filter($this->getSetting('progress_bar_color')));
-    $summary[] = t('Color settings: @colors', ['@colors' => $colors]);
+    $wid = 'case_status';
+    $states = WorkflowState::loadMultiple([], $wid);
+    $start = $states[$this->getSetting('start_state')];
+    $summary[] = t('Start state: @start', ['@start' => $start->label()]);
 
-    $dates = implode(', ', array_filter($this->getSetting('exclude_dates')));
-    $summary[] = t('Exclude dates: @dates', ['@dates' => $dates]);
+    $end = $states[$this->getSetting('end_state')];
+    $summary[] = t('Complete state: @end', ['@end' => $end->label()]);
     return $summary;
   }
 
@@ -102,12 +97,17 @@ class ProgressBarFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    $exclude_dates = array_filter($this->getSetting('exclude_dates'));
+    $start_state = $this->getSetting('start_state');
+    $end_state = $this->getSetting('end_state');
 
     $entity = $items->getEntity();
     $entity_type = $entity->getEntityTypeId();
     $field_name = 'field_case_status';   // @TODO use wf code to determine wf field
     $current_sid = WorkflowManager::getCurrentStateId($entity, $field_name);
+
+    // get transition timestamps for start and complete
+    $start_trans_date = $this->getTransitionTime($entity_type, $entity->id(), $field_name, $start_state);
+    $end_trans_date = $this->getTransitionTime($entity_type, $entity->id(), $field_name, $end_state);
 
     // load the current state to use as a lable on the progressbar
     /* @var $current_state WorkflowState */
@@ -132,7 +132,7 @@ class ProgressBarFieldFormatter extends FormatterBase {
           // otherwise we will assume the due date is the same as project completion date
           $due_date = $end_date;
         }
-        $elements = $this->formatDetail($start_date, $end_date, $due_date, $current_state);
+        $elements = $this->formatDetail($start_date, $end_date, $due_date, $current_state, $start_trans_date, $end_trans_date);
       }
     }
 
@@ -141,8 +141,13 @@ class ProgressBarFieldFormatter extends FormatterBase {
 
   /**
    * Helper function to get the data.
+   * 
+   * Some thoughts on what to add:
+   *  - change the start date from now() to a field on the project? Maybe project node creation date?
+   *  - change the colour / name on the bar prior to start state being reached
+   *  - change the colour / name on the bar after complete state reached
    */
-  protected function getData($start_date, $end_date, $due_date, $list_count) {
+  protected function getData($start_date, $end_date, $due_date, $list_count, $start_trans_date, $end_trans_date) {
     // Array Loop Counter.
     $loop_count = 0;
     $state_data = array();
@@ -172,17 +177,19 @@ class ProgressBarFieldFormatter extends FormatterBase {
   /**
    * Helper function to get the element data for state.
    */
-  protected function formatDetail($start_date, $end_date, $due_date, $current_state) {
+  protected function formatDetail($start_date, $end_date, $due_date, $current_state, $start_trans_date, $end_trans_date) {
     $elements = [];
+    $end_state = $this->getSetting('end_state');
 
     // get number of months between now and end date for progress bar
     $list_count = $this->diffDates($start_date, $end_date);
 
-    $state = $this->getData($start_date, $end_date, $due_date, $list_count);
+    $state = $this->getData($start_date, $end_date, $due_date, $list_count, $start_trans_date, $end_trans_date);
     $elements[0] = [
       '#theme' => 'project_progress_bar_format',
       '#state' => $state,
       '#label' => $current_state->label(),
+      '#is_complete' => ($current_state->id() == $end_state) ? TRUE : FALSE,
       '#attached' => array('library' => array('project_progress_bar/project-progress-bar')),
     ];
 //dpm($elements);

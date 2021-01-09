@@ -6,11 +6,17 @@
  * Available variables:
  * - state: Array which contain name, color, percentage, is_first, due.
  * - label: String to label the progressbar (current state)
+ * - is_complete: true if case complete, false otherwise 
  *
  * @ingroup themeable
  */
 #}
-<div class="project-bar-label"><i class="fas fa-arrow-circle-right"></i> {{ label }}</div>
+{% if is_complete %}
+  {% set fa_class = 'fa-check-square' %}
+{% else %}
+  {% set fa_class = 'fa-arrow-circle-right' %}
+{% endif %}
+<div class="project-bar-label"><i class="fas {{ fa_class }}"></i> {{ label }}</div>
 <div class="progress project-bar-wrapper">
     {% for item in state %}
         <div class="progress-bar project-bar-section" role="progressbar" style="width: {{ item.lowest_percent }}%; background-color: {{ item.color }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ item.state }}"></div>

@@ -32,6 +32,7 @@ function project_progress_bar_theme() {
       'variables' => array(
         'state' => NULL,
         'label' => NULL,
+        'is_complete' => FALSE,
       ),
       'template' => 'progress-bar-format',
     ],
